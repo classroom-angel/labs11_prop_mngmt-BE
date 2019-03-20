@@ -15,7 +15,8 @@
   "keywords": [],
   "author": "",
   "contributors": [
-    "John O'Rourke <officialjohnorourke@gmail.com> (https://johnoro.netlify.com)"
+    "John O'Rourke <officialjohnorourke@gmail.com> (https://johnoro.netlify.com)",
+    "Grant Reighard <grantreighard@gmail.com> (https://www.github.com/grantreighard)"
   ],
   "license": "ISC",
   "bugs": {
@@ -24,7 +25,8 @@
   "homepage": "https://github.com/classroom-angel/labs11_prop_mngmt-BE#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "knex": "^0.16.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
