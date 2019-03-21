@@ -9,4 +9,4 @@ exports.up = knex =>
     table.integer('expected_hours');
   });
 
-exports.down = knex => knex.schema.dropTableIfExists(users);
+exports.down = knex => knex.schema.dropTableIfExists(organizations);
