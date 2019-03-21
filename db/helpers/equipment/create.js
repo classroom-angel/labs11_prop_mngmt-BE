@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const readByName = require('../organizations/readByName');
 
 const create = async (req, res) => {
   try {
