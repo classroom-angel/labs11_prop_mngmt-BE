@@ -12,8 +12,10 @@ const register = async (req, res) => {
       role,
       organizationName
     } = req.body;
-    const hash = bcrypt.hashSync(password, 12);
+
+    const hash = bcrypt.hashSync(password, process.env.HASH_SALT);
     password = hash;
+
     const { id } = readByName(organizationName);
 
     const userResponse = await db('users').insert({
