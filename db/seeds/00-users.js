@@ -3,31 +3,28 @@ let fakeUsers = [];
 roles = ['teacher', 'board member', 'school admin'];
 
 for (let i = 0; i < 500; i++) {
-  const username = faker.fake('{{internet.userName}}');
-  const first_name = faker.fake('{{name.firstName}}');
-  const last_name = faker.fake('{{name.lastName}}');
-  const password = faker.fake('{{internet.password}}');
+  const username = faker.internet.userName();
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
+  const password = faker.internet.password();
   const role = roles[Math.floor(Math.random() * roles.length)];
-  const organization_id = faker.fake('{{random.number}}');
+  const randId = faker.random.number();
 
-  const object = {
-    username: username,
-    first_name: first_name,
-    last_name: last_name,
-    password: password,
-    role: role
-    //organization_id: organization_id
+  const user = {
+    username,
+    first_name: firstName,
+    last_name: lastName,
+    password,
+    role,
+    organization_id: randId
   };
 
-  fakeUsers.push(object);
+  fakeUsers.push(user);
 }
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('users')
+const users = 'users';
+
+exports.seed = knex =>
+  knex(users)
     .truncate()
-    .then(function() {
-      // Inserts seed entries
-      return knex('users').insert(fakeUsers);
-    });
-};
+    .then(() => knex(users).insert(fakeUsers));

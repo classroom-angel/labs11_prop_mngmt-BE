@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createIssue } = require('../../');
+const { createIssue } = require('../../db/helpers');
 
 router.use('/status', require('./status'));
 
