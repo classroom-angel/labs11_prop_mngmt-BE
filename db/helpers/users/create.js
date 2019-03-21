@@ -1,5 +1,6 @@
 const db = require('../../dbConfig');
 const readByName = require('../organizations/readByName');
+const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
   try {
@@ -11,7 +12,8 @@ const register = async (req, res) => {
       role,
       organizationName
     } = req.body;
-
+    const hash = bcrypt.hashSync(password, 12);
+    password = hash;
     const { id } = readByName(organizationName);
 
     const userResponse = await db('users').insert({
