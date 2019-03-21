@@ -1,8 +1,10 @@
 # Classroom Angel Back End
 
-[TDD]()
-[Trello]()?
-[Deployed BE]()
-[API docs]() (redundant?)
-[Blogs]()?
-[Start guide]()?
+## Important Links:
+
+- [TDD]()
+- [Trello]()?
+- [Deployed BE]()
+- [API docs]() (redundant?)
+- [Blogs]()?
+- [Start guide]()?
