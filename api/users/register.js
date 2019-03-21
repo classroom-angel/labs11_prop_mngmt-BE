@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { register } = require('../../db/dataHelpers');
+const { register } = require('../../db/helpers');
 
 router.post('', register);
 
