@@ -1,7 +1,9 @@
 const createOrganization = require('./organizations/create');
-const register = require('./users/register');
+const createUser = require('./users/create');
+const createEquipment = require('./equipment/create');
 
 module.exports = {
   createOrganization,
-  register
+  createUser,
+  createEquipment
 };
