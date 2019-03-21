@@ -2,7 +2,15 @@ const db = require('../../dbConfig');
 
 const create = async (req, res) => {
   try {
-    const orgResponse = await db('organizations').insert(req.body);
+    const { name, city, country, expectedHours } = req.body;
+
+    const orgResponse = await db('organizations').insert({
+      name,
+      city,
+      country,
+      expected_hours: expectedHours
+    });
+
     if (orgResponse) {
       res.status(200).json({ orgResponse });
     } else {
