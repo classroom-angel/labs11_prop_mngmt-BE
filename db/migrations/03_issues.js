@@ -6,8 +6,8 @@ exports.up = knex =>
     table.string('date');
     table.string('name');
     table.string('notes');
-    table.boolean('isVisit');
     table.string('status');
+    table.boolean('is_visit').defaultTo(false);
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(issues);
