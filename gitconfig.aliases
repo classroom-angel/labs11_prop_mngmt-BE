@@ -1,0 +1,15 @@
+[alias]
+  # to update a bad commit message
+	amend = commit --amend
+  # adds, commits, and pushes, with multiple messages (m flags) allowed!
+	acp = "!f() { git add . && git commit -m \"$@\" && git push; }; f"
+	# creates a new branch, checks out to it, and then pushes it to GH (while setting the upstream)
+	nb = "!f() { git checkout -b \"$@\" && git push -u origin \"$@\"; }; f"
+	# switches to dev branch, deletes the old [feature] branch given as an argument, deletes the branch on GH as well, and then pulls any merged changes from development
+	db = "!f() { git checkout development && git branch -d \"$@\" && git push -d origin \"$@\" && git pull; }; f"
+	# conveniently removes files added to git without deleting them locally
+	rmc = "!f() { git rm -r --cached \"$@\"; }; f"
+	# pushes to heroku remote's master for an updated deploy from given branch
+	ph = "!f() { git push heroku \"$@\":master; }; f"
+	# PRs from the command-line via hub: https://hub.github.com/
+	pr = "!f() { hub pull-request -b development -c -F pr.md; }; f"
