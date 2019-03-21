@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { register } = require('../../db/helpers');
+const { createUser } = require('../../db/helpers');
 
-router.post('', register);
+router.post('', createUser);
 
 module.exports = router;
