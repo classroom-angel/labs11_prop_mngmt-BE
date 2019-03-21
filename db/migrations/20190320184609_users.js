@@ -9,10 +9,10 @@ exports.up = knex =>
     table.string('password');
     table.string('role');
     table.integer(orgId).unsigned();
-    table
-      .foreign(orgId)
-      .references('id')
-      .on('organizations');
+    // table
+    //   .foreign(orgId)
+    //   .references('id')
+    //   .on('organizations');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(users);

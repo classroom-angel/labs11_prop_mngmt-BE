@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const { register } = require('../../db/dataHelpers');
 
-router.post('', (req, res) => {
-  // call the user table and insert into the request body into it; might need some validation
-});
+router.post('', register);
 
 module.exports = router;
