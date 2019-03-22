@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createUser } = require('../../db/helpers');
+const { createUser } = require('../../db/dataHelpers');
 
 router.post('', createUser);
 

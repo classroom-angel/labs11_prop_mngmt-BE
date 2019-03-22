@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createOrganization } = require('../../db/helpers');
+const { createOrganization } = require('../../db/dataHelpers');
 
 router.post('', createOrganization);
 
