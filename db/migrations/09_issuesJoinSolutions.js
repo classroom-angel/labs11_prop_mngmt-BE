@@ -1,11 +1,11 @@
-const issuesJoinTags = 'issues_join_tags';
+const issuesJoinSolutions = 'issues_join_tags';
 
 exports.up = knex =>
-  knex.schema.createTable(issuesJoinTags, table => {
+  knex.schema.createTable(issuesJoinSolutions, table => {
     const issueId = 'issue_id',
-      tagId = 'tag_id';
+      solutionId = 'solution_id';
 
-    table.primary([issueId, tagId]);
+    table.primary([issueId, solutionId]);
 
     table
       .integer(issueId)
@@ -18,14 +18,14 @@ exports.up = knex =>
       .onDelete('CASCADE');
 
     table
-      .integer(tagId)
+      .integer(solutionId)
       .unsigned()
       .notNullable();
     table
-      .foreign(tagId)
+      .foreign(solutionId)
       .references('id')
-      .on('tags')
+      .on('solutions')
       .onDelete('CASCADE');
   });
 
-exports.down = knex => knex.schema.dropTableIfExists(issuesJoinTags);
+exports.down = knex => knex.schema.dropTableIfExists(issuesJoinSolutions);
