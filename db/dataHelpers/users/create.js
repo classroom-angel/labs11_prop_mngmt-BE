@@ -15,7 +15,7 @@ const register = async (req, res) => {
     organizationName
   } = req.body;
 
-  const hash = bcrypt.hashSync(password, process.env.HASH_SALT || 11);
+  const hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 11);
 
   const { id } = readByName(organizationName);
 
