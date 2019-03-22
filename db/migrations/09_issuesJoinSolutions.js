@@ -1,4 +1,4 @@
-const issuesJoinSolutions = 'issues_join_tags';
+const issuesJoinSolutions = 'issues_join_solutions';
 
 exports.up = knex =>
   knex.schema.createTable(issuesJoinSolutions, table => {

@@ -1,10 +1,10 @@
+const { makeDate } = require('../dataHelpers/migrations');
 const issues = 'issues';
 
 exports.up = knex =>
   knex.schema.createTable(issues, table => {
-    const date = new Date();
     table.increments();
-    table.string('date').defaultTo(date.format('m-d-Y'));
+    table.string('date').defaultTo(makeDate().format('MM-DD-YY'));
     table.string('name');
     table.string('notes');
     table.string('status').defaultTo('need attentions');
