@@ -8,7 +8,6 @@ for (let i = 0; i < 500; i++) {
   const lastName = faker.name.lastName();
   const password = faker.internet.password();
   const role = roles[Math.floor(Math.random() * roles.length)];
-  const randId = faker.random.number();
 
   const user = {
     username,
@@ -16,15 +15,11 @@ for (let i = 0; i < 500; i++) {
     last_name: lastName,
     password,
     role,
-    organization_id: randId
+    organization_id: 1
   };
 
   fakeUsers.push(user);
 }
 
-const users = 'users';
-
-exports.seed = knex =>
-  knex(users)
-    .truncate()
-    .then(() => knex(users).insert(fakeUsers));
+const { makeSeed } = require('../dataHelpers/seeds');
+exports.seed = makeSeed('users', fakeUsers);
