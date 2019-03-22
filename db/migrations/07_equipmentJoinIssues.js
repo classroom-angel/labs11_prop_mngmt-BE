@@ -2,8 +2,8 @@ const equipmentJoinIssues = 'equipmentJoinIssues';
 
 exports.up = knex =>
   knex.schema.createTable(equipmentJoinIssues, table => {
-    const equipmentId = 'equipmentId',
-      issueId = 'issueId';
+    const equipmentId = 'equipment_id',
+      issueId = 'issue_id';
 
     table.primary([equipmentId, issueId]);
 
