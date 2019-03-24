@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { createOrganization } = require('../../db/dataHelpers');
+const { create } = require('../../db/dataHelpers/organizations');
 
-router.post('', createOrganization);
+router.post('', create);
 
 module.exports = router;

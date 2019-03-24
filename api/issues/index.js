@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { createIssue, readIssues } = require('../../db/dataHelpers');
+const { create, read } = require('../../db/dataHelpers/issues');
 
 router.use('/status', require('./status'));
 
-router.get('', readIssues);
+router.get('', read);
 
-router.post('', createIssue);
+router.post('', create);
 
 module.exports = router;

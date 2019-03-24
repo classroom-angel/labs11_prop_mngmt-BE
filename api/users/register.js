@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { createUser } = require('../../db/dataHelpers');
+const { create } = require('../../db/dataHelpers/users');
 
-router.post('', createUser);
+router.post('', create);
 
 module.exports = router;

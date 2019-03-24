@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { readUsers } = require('../../db/dataHelpers');
+const { read } = require('../../db/dataHelpers/users');
 
 router.use('/register', require('./register'));
 router.use('/login', require('./login'));
 
-router.get('', readUsers);
+router.get('', read);
 
 module.exports = router;
