@@ -13,7 +13,9 @@ exports.up = knex =>
     table
       .foreign(orgId)
       .references('id')
-      .on('organizations');
+      .on('organizations')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(users);
