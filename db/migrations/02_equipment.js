@@ -13,7 +13,8 @@ exports.up = knex =>
     table
       .foreign(orgId)
       .references('id')
-      .on('organizations');
+      .on('organizations')
+      .onDelete('CASCADE');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(equipment);
