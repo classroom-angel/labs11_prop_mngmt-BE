@@ -1,17 +1,10 @@
-const fs = require('fs');
-const path = require('path');
 const router = require('express').Router();
+const { forEachFile } = require('../db/dataHelpers');
 
-fs.readdir(path.resolve(__dirname, './'), (err, files) =>
-  files.forEach(file => {
-    const theWay = `./${file}`;
-    router.use(theWay.slice(1), require(theWay));
-  })
-);
-
-// router.use('/organizations', require('./organizations'));
-// router.use('/users', require('./users'));
-// router.use('/equipment', require('./equipment'));
-// router.use('/issues', require('./issues'));
+const pathway = './';
+forEachFile(__dirname, pathway, file => {
+  const path = pathway + file;
+  router.use(path.slice(1), require(path));
+});
 
 module.exports = router;
