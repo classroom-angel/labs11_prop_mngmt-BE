@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
+    "batch": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
