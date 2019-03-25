@@ -5,7 +5,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { name, city, country, expectedHours } = req.body;
 
-    const updateResponse = await db('issues')
+    const updateResponse = await db('organizations')
       .where({ id })
       .update({
         name,
@@ -17,7 +17,9 @@ const update = async (req, res) => {
     if (updateResponse) {
       res.status(200).json({ updateResponse });
     } else {
-      res.status(400).json({ error: 'Could not update issue in database.' });
+      res
+        .status(400)
+        .json({ error: 'Could not update organization in database.' });
     }
   } catch (error) {
     res.status(500).json({ error });

@@ -8,6 +8,7 @@ const {
 
 router.post('', create);
 router.get('', read);
-router.put('', update), router.delete('', deleted);
+router.put('', update);
+router.delete('', deleted);
 
 module.exports = router;
