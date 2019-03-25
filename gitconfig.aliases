@@ -11,5 +11,9 @@
 	rmc = "!f() { git rm -r --cached \"$@\"; }; f"
 	# pushes to heroku remote's master for an updated deploy from given branch
 	ph = "!f() { git push heroku \"$@\":master; }; f"
+	# the next 3 are for migrating and seeding the production database
+	migrate = "!f() { heroku run knex migrate:latest; }; f"
+	rollback = "!f() { heroku run knex migrate:rollback; }; f"
+	seed = "!f() { heroku run knex seed:run; }; f"
 	# PRs from the command-line via hub: https://hub.github.com/
 	pr = "!f() { hub pull-request -b development -c -F pr.md; }; f"
