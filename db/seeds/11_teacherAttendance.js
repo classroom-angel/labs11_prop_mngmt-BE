@@ -1,7 +1,7 @@
 const fakeTeacherAttendance = [];
 
 fakeTeacherAttendance.push({
-  user_id: 1,
+  id: 1,
   last_in: 0,
   last_out: 0,
   total_minutes_missed: 0
