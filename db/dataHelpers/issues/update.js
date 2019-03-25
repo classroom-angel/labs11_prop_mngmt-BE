@@ -6,7 +6,7 @@ const update = async (req, res) => {
     const { date, name, notes, status, isVisit, organizationId } = req.body;
 
     const updateResponse = await db('issues')
-      .where('issue_id', id)
+      .where({ id })
       .update({
         date,
         name,
