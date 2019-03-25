@@ -6,9 +6,9 @@ const deleted = require('./deleted');
 const generateToken = require('./generateToken');
 
 module.exports = {
+  login,
   create,
   read,
-  login,
   update,
   deleted,
   helpers: {

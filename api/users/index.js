@@ -5,7 +5,7 @@ router.use('/register', require('./register'));
 router.use('/login', require('./login'));
 
 router.get('', read);
-router.delete('', deleted);
-router.put('', update);
+router.delete('/:id', deleted);
+router.put('/:id', update);
 
 module.exports = router;
