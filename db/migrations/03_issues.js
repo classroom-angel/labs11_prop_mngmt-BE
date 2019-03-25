@@ -1,3 +1,4 @@
+const { foreignId } = require('../dataHelpers/migrations');
 const { makeDate } = require('../dataHelpers/migrations');
 const issues = 'issues';
 
@@ -9,13 +10,7 @@ exports.up = knex =>
     table.string('notes');
     table.string('status').defaultTo('need attentions');
     table.boolean('is_visit').defaultTo(false);
-    const orgId = 'organization_id';
-    table.integer(orgId).unsigned();
-    table
-      .foreign(orgId)
-      .references('id')
-      .on('organizations')
-      .onDelete('CASCADE');
+    foreignId(table, 'organization_id', 'organizations');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(issues);

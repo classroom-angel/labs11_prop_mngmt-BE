@@ -1,3 +1,4 @@
+const { foreignId } = require('../dataHelpers/migrations');
 const equipmentJoinIssues = 'equipment_join_issues';
 
 exports.up = knex =>
@@ -7,25 +8,8 @@ exports.up = knex =>
 
     table.primary([equipmentId, issueId]);
 
-    table
-      .integer(equipmentId)
-      .unsigned()
-      .notNullable();
-    table
-      .foreign(equipmentId)
-      .references('id')
-      .on('equipment')
-      .onDelete('CASCADE');
-
-    table
-      .integer(issueId)
-      .unsigned()
-      .notNullable();
-    table
-      .foreign(issueId)
-      .references('id')
-      .on('issues')
-      .onDelete('CASCADE');
+    foreignId(table, equipmentId, 'equipment');
+    foreignId(table, issueId, 'issues');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(equipmentJoinIssues);
