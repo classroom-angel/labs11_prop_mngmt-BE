@@ -16,7 +16,7 @@ const update = async (req, res) => {
       organizationName
     } = req.body;
 
-    const { org_id } = readByName(organizationName);
+    const { orgId } = readByName(organizationName);
     const hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
 
     const updateResponse = await db('users')
@@ -27,7 +27,7 @@ const update = async (req, res) => {
         last_name: lastName,
         password: hash,
         role,
-        organization_id: org_id
+        organization_id: orgId
       });
 
     if (updateResponse) {
