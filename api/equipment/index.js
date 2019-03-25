@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { createEquipment } = require('../../db/helpers');
+const { create } = require('../../db/dataHelpers/equipment');
 
-router.post('', createEquipment);
+router.post('', create);
 
 module.exports = router;

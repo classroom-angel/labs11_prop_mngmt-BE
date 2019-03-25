@@ -1,5 +1,7 @@
 const db = require('../../dbConfig');
-const readByName = require('../organizations/readByName');
+const {
+  helpers: { readByName }
+} = require('../organizations');
 const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
@@ -13,8 +15,7 @@ const register = async (req, res) => {
       organizationName
     } = req.body;
 
-    const hash = bcrypt.hashSync(password, process.env.HASH_SALT);
-    password = hash;
+    const hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
 
     const { id } = readByName(organizationName);
 
@@ -22,7 +23,7 @@ const register = async (req, res) => {
       username,
       first_name: firstName,
       last_name: lastName,
-      password,
+      password: hash,
       role,
       organization_id: id
     });
