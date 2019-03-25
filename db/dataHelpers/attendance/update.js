@@ -2,7 +2,8 @@ const db = require('../../dbConfig');
 
 const update = async (req, res) => {
   try {
-    const { id, lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
+    const { id } = req.params;
+    const { lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
 
     const updateResponse = await db('teacher_attendance')
       .where({ id })
