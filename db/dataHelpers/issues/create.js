@@ -2,14 +2,15 @@ const db = require('../../dbConfig');
 
 const create = async (req, res) => {
   try {
-    const { date, name, notes, status, isVisit } = req.body;
+    const { date, name, notes, status, isVisit, organizationId } = req.body;
 
     const issueResponse = await db('issues').insert({
       date,
       name,
       notes,
       status,
-      is_visit: isVisit
+      is_visit: isVisit,
+      organization_id: organizationId
     });
 
     if (issueResponse) {
