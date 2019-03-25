@@ -3,7 +3,7 @@ const db = require('../../dbConfig');
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { date, name, notes, status, isVisit } = req.body;
+    const { date, name, notes, status, isVisit, organizationId } = req.body;
 
     const updateResponse = await db('issues')
       .where('issue_id', id)
@@ -12,7 +12,8 @@ const update = async (req, res) => {
         name,
         notes,
         status,
-        is_visit: isVisit
+        is_visit: isVisit,
+        organization_id: organizationId
       });
 
     if (updateResponse) {
