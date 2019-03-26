@@ -5,17 +5,18 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { name, city, country, expectedHours } = req.body;
 
-    const updateResponse = await db('organizations')
+    const [organization] = await db('organizations')
       .where({ id })
       .update({
         name,
         city,
         country,
         expected_hours: expectedHours
-      });
+      })
+      .returning('*');
 
-    if (updateResponse) {
-      res.status(200).json({ updateResponse });
+    if (organization) {
+      res.status(200).json({ organization });
     } else {
       res
         .status(400)
