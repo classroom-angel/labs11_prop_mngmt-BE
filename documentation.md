@@ -4,7 +4,7 @@
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
   | URL Params | Body | Returns |
-  | --- | --- | --- |
+  | ---------- | ------------------------ | -------------------------- |
   | N/A | N/A | All attendance objects (return) |
 
 ```Attendance object (return): {
@@ -17,19 +17,20 @@
 ```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - create attendance record
-  | URL Params | Body | Returns |
-  | --- | --- | --- |
-  | N/A | Attendance object (send) | Attendance object (return) |
 
-  ```
-  Attendance object (send): {
-  "id": integer,
-  "lastIn": integer,
-  "lastOut": integer,
-  "totalMinutesMissed": integer,
-  "expectedHours": integer
-  }
-  ```
+| URL Params | Body                     | Returns                    |
+| ---------- | ------------------------ | -------------------------- |
+| N/A        | Attendance object (send) | Attendance object (return) |
+
+```
+Attendance object (send): {
+"id": integer,
+"lastIn": integer,
+"lastOut": integer,
+"totalMinutesMissed": integer,
+"expectedHours": integer
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/attendance/id](https://classroom-angel-development.herokuapp.com/api/attendance/id) - update a specific attendance record
 
