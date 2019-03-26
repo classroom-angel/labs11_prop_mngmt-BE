@@ -7,7 +7,7 @@ const create = async (req, res) => {
   try {
     const { name, description, working, damaged, organizationName } = req.body;
 
-    const { id } = readByName(organizationName);
+    const { id } = await readByName(organizationName);
 
     const equipmentResponse = await db('equipment').insert({
       name,
