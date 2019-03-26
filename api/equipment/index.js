@@ -3,11 +3,13 @@ const {
   create,
   read,
   update,
-  deleted
+  deleted,
+  getById
 } = require('../../db/dataHelpers/equipment');
 
 router.post('', create);
 router.get('', read);
+router.get(':/id', getById);
 router.put('/:id', update);
 router.delete('/:id', deleted);
 
