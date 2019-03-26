@@ -164,17 +164,15 @@ Issues object (return): {
 | ---------- | ------------------- | ---------------------- |
 | N/A        | Issue object (send) | Issues object (return) |
 
-```
-Issues object (send): {
-  "id": integer,
-  "date": string (MM-DD-YY),
-  "name": string,
-  "notes": string,
-  "status": string, ("Needs attention", "Fixed", etc.)
-  "is_visit": boolean,
-  "organizationId": string,
-  "equipmentId": integer
-}
+```Issues object (send): {
+"id": integer,
+"date": string (MM-DD-YY),
+"name": string,
+"notes": string,
+"status": string, ("Needs attention", "Fixed", etc.)
+"isVisit": boolean,
+"organizationId": string,
+"equipmentId": integer
 ```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - update a specific issue comment
