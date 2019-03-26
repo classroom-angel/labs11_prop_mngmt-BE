@@ -4,9 +4,9 @@
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
 
-  | URL Params | Body | Returns                         |
-  | ---------- | ---- | ------------------------------- |
-  | N/A        | N/A  | All attendance objects (return) |
+| URL Params | Body | Returns                         |
+| ---------- | ---- | ------------------------------- |
+| N/A        | N/A  | All attendance objects (return) |
 
 ```
 Attendance object (return): {
@@ -20,9 +20,9 @@ Attendance object (return): {
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/id](https://classroom-angel-development.herokuapp.com/api/attendance/id) - retrieve a specific attendance record
 
-  | URL Params | Body | Returns                    |
-  | ---------- | ---- | -------------------------- |
-  | N/A        | N/A  | Attendance object (return) |
+| URL Params | Body | Returns                    |
+| ---------- | ---- | -------------------------- |
+| N/A        | N/A  | Attendance object (return) |
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - create attendance record
 
