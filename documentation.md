@@ -1,5 +1,14 @@
 # Classroom Angel Internal API Documentation
 
+- [Organizations](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#organizations)
+- [Users](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#users)
+- [Teacher Attendance](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#teacher-attendance)
+- [Equipment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#equipment)
+- [Issues](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#issues)
+- [Tags](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#tags)
+- [Comments](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#issue-comments)
+- [Solutions](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#solutions)
+
 ## Teacher Attendance
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
