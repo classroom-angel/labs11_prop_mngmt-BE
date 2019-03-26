@@ -5,7 +5,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { name, description, working, damaged, organizationId } = req.body;
 
-    const updateResponse = await db('equipment')
+    const [equipment] = await db('equipment')
       .where({ id })
       .update({
         name,
@@ -13,10 +13,11 @@ const update = async (req, res) => {
         working,
         damaged,
         organization_id: organizationId
-      });
+      })
+      .returning('*');
 
-    if (updateResponse) {
-      res.status(200).json({ updateResponse });
+    if (equipment) {
+      res.status(200).json({ equipment });
     } else {
       res
         .status(400)

@@ -9,16 +9,18 @@ const create = async (req, res) => {
 
     const { id } = await readByName(organizationName);
 
-    const equipmentResponse = await db('equipment').insert({
-      name,
-      description,
-      working,
-      damaged,
-      organization_id: id
-    });
+    const [equipment] = await db('equipment')
+      .insert({
+        name,
+        description,
+        working,
+        damaged,
+        organization_id: id
+      })
+      .returning('*');
 
-    if (equipmentResponse) {
-      res.status(200).json({ equipmentResponse });
+    if (equipment) {
+      res.status(200).json({ equipment });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
