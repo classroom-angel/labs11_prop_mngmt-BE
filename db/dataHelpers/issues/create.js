@@ -31,10 +31,6 @@ const create = async (req, res) => {
             issue_id: issue.id
           })
           .returning('*');
-      } else {
-        res
-          .status(422)
-          .json({ error: "The given equipment doesn't seem to exist." });
       }
 
       res.status(200).json({ issue, equipmentJoinIssue });
