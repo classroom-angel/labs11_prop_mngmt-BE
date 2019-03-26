@@ -3,30 +3,33 @@
 ## Teacher Attendance
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
-  URL Params | Body | Returns
-  --- | --- | ---
-  N/A | N/A | All attendance objects (return)
+  | URL Params | Body | Returns |
+  | --- | --- | --- |
+  | N/A | N/A | All attendance objects (return) |
 
-  > Attendance object (return): {
-  > "id": integer,
-  > "last_in": integer,
-  > "last_out": integer,
-  > "total_minutes_missed": integer,
-  > "expected_hours": integer
-  > }
+```Attendance object (return): {
+  "id": integer,
+  "last_in": integer,
+  "last_out": integer,
+  "total_minutes_missed": integer,
+  "expected_hours": integer
+  }
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - create attendance record
-  URL Params | Body | Returns
-  --- | --- | ---
-  N/A | Attendance object (send) | Attendance object (return)
+  | URL Params | Body | Returns |
+  | --- | --- | --- |
+  | N/A | Attendance object (send) | Attendance object (return) |
 
-  > Attendance object (send): {
-  > "id": integer,
-  > "lastIn": integer,
-  > "lastOut": integer,
-  > "totalMinutesMissed": integer,
-  > "expectedHours": integer
-  > }
+  ```
+  Attendance object (send): {
+  "id": integer,
+  "lastIn": integer,
+  "lastOut": integer,
+  "totalMinutesMissed": integer,
+  "expectedHours": integer
+  }
+  ```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/attendance/id](https://classroom-angel-development.herokuapp.com/api/attendance/id) - update a specific attendance record
 
@@ -48,12 +51,13 @@
 | ---------- | ---- | ---------------------------- |
 | N/A        | N/A  | All comment objects (return) |
 
-> Comment object (return): {
-> "id": integer,
-> "content": string,
-> "user_id": integer,
-> "issue_id": integer
-> }
+```Comment object (return): {
+"id": integer,
+"content": string,
+"user_id": integer,
+"issue_id": integer
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/comments/](https://classroom-angel-development.herokuapp.com/api/comments/) - create an issue comment
 
@@ -61,12 +65,13 @@
 | ---------- | --------------------- | ----------------------- |
 | N/A        | Comment object (send) | Comment object (return) |
 
-> Comment object (send): {
-> "id": integer,
-> "content": string,
-> "userId": integer,
-> "issueId": integer
-> }
+```Comment object (send): {
+"id": integer,
+"content": string,
+"userId": integer,
+"issueId": integer
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/comments/id](https://classroom-angel-development.herokuapp.com/api/comments/id) - update a specific issue comment
 
@@ -88,14 +93,15 @@
 | ---------- | ---- | ------------------------------ |
 | N/A        | N/A  | All equipment objects (return) |
 
-> Equipment object (return): {
-> "id": integer,
-> "name": string,
-> "description": string,
-> "working": integer,
-> "damaged": integer,
-> "organization_id": integer
-> }
+```Equipment object (return): {
+"id": integer,
+"name": string,
+"description": string,
+"working": integer,
+"damaged": integer,
+"organization_id": integer
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/equipment/](https://classroom-angel-development.herokuapp.com/api/equipment/) - create an issue comment
 
@@ -103,14 +109,15 @@
 | ---------- | ----------------------- | ------------------------- |
 | N/A        | Equipment object (send) | Equipment object (return) |
 
-> Equipment object (send): {
-> "id": integer,
-> "name": string,
-> "description": string,
-> "working": integer,
-> "damaged": integer,
-> "organizationName": string
-> }
+```Equipment object (send): {
+"id": integer,
+"name": string,
+"description": string,
+"working": integer,
+"damaged": integer,
+"organizationName": string
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/equipment/id](https://classroom-angel-development.herokuapp.com/api/equipment/id) - update a specific issue comment
 
@@ -132,15 +139,16 @@
 | ---------- | ---- | --------------------------- |
 | N/A        | N/A  | All issues objects (return) |
 
-> Issues object (return): {
-> "id": integer,
-> "date": string (MM-DD-YY),
-> "name": string,
-> "notes": string,
-> "status": string,
-> "is_visit": boolean,
-> "organization_id": integer
-> }
+```Issues object (return): {
+"id": integer,
+"date": string (MM-DD-YY),
+"name": string,
+"notes": string,
+"status": string,
+"is_visit": boolean,
+"organization_id": integer
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/issues/](https://classroom-angel-development.herokuapp.com/api/issues/) - create an issue
 
@@ -148,16 +156,17 @@
 | ---------- | ------------------- | ---------------------- |
 | N/A        | Issue object (send) | Issues object (return) |
 
-> Issues object (send): {
-> "id": integer,
-> "date": string (MM-DD-YY),
-> "name": string,
-> "notes": string,
-> "status": string, ("Needs attention", "Fixed", etc.)
-> "is_visit": boolean,
-> "organizationId": string,
-> "equipmentId": integer
-> }
+```Issues object (send): {
+"id": integer,
+"date": string (MM-DD-YY),
+"name": string,
+"notes": string,
+"status": string, ("Needs attention", "Fixed", etc.)
+"is_visit": boolean,
+"organizationId": string,
+"equipmentId": integer
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - update a specific issue comment
 
@@ -179,13 +188,14 @@
 | ---------- | ---- | --------------------------------- |
 | N/A        | N/A  | All organization objects (return) |
 
-> Organization object (return): {
-> "id": integer,
-> "name": string,
-> "city": string,
-> "country": string,
-> "expected_hours": integer
-> }
+```Organization object (return): {
+"id": integer,
+"name": string,
+"city": string,
+"country": string,
+"expected_hours": integer
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/organizations/](https://classroom-angel-development.herokuapp.com/api/organizations/) - create an organization
 
@@ -193,13 +203,14 @@
 | ---------- | ------------------- | ---------------------- |
 | N/A        | Issue object (send) | Issues object (return) |
 
-> Organization object (return): {
-> "id": integer,
-> "name": string,
-> "city": string,
-> "country": string,
-> "expectedHours": integer
-> }
+```Organization object (return): {
+"id": integer,
+"name": string,
+"city": string,
+"country": string,
+"expectedHours": integer
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/organizations/id](https://classroom-angel-development.herokuapp.com/api/organizations/id) - update a specific organization
 
@@ -221,11 +232,12 @@
 | ---------- | ---- | ----------------------------- |
 | N/A        | N/A  | All solution objects (return) |
 
-> Solution object (return): {
-> "id": integer,
-> "date": string (MM_DD_YY),
-> "time": string (HH:MM AM/PM)
-> }
+```Solution object (return): {
+"id": integer,
+"date": string (MM_DD_YY),
+"time": string (HH:MM AM/PM)
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/solutions/](https://classroom-angel-development.herokuapp.com/api/solutions/) - create an organization
 
@@ -233,11 +245,12 @@
 | ---------- | ---------------------- | ------------------------ |
 | N/A        | Solution object (send) | Solution object (return) |
 
-> Solution object (send): {
-> "id": integer,
-> "date": string (MM_DD_YY),
-> "time": string (HH:MM AM/PM)
-> }
+```Solution object (send): {
+"id": integer,
+"date": string (MM_DD_YY),
+"time": string (HH:MM AM/PM)
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/solutions/id](https://classroom-angel-development.herokuapp.com/api/solutions/id) - update a specific solution
 
@@ -259,10 +272,11 @@
 | ---------- | ---- | ------------------------ |
 | N/A        | N/A  | All tag objects (return) |
 
-> Tag object (return): {
-> "id": integer,
-> "name": string
-> }
+```Tag object (return): {
+"id": integer,
+"name": string
+}
+```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/tags/](https://classroom-angel-development.herokuapp.com/api/tags/) - create a tag
 
@@ -270,10 +284,11 @@
 | ---------- | ----------------- | ------------------- |
 | N/A        | Tag object (send) | Tag object (return) |
 
-> Tag object (send): {
-> "id": integer,
-> "name": string
-> }
+```Tag object (send): {
+"id": integer,
+"name": string
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/tags/id](https://classroom-angel-development.herokuapp.com/api/tags/id) - update a specific tag
 
@@ -295,41 +310,44 @@
 | ---------- | ---- | ------------------------- |
 | N/A        | N/A  | All user objects (return) |
 
-> User object (return): {
-> "id": integer,
-> "username": string,
-> "first_name": string,
-> "last_name": string,
-> "password": string,
-> "role": string,
-> "organization_id": integer
-> }
+```User object (return): {
+"id": integer,
+"username": string,
+"first_name": string,
+"last_name": string,
+"password": string,
+"role": string,
+"organization_id": integer
+}
+```
 
-- POST to [https://classroom-angel-development.herokuapp.com/api/register/](https://classroom-angel-development.herokuapp.com/api/register/) - register a user
+- POST to [https://classroom-angel-development.herokuapp.com/api/users/register/](https://classroom-angel-development.herokuapp.com/api/register/) - register a user
 
 | URL Params | Body                   | Returns              |
 | ---------- | ---------------------- | -------------------- |
 | N/A        | Register object (send) | User object (return) |
 
-> Register object (send): {
-> "username": string,
-> "firstName": string,
-> "lastName": string,
-> "password": string.
-> "role": string,
-> "organizationName": string
-> }
+```Register object (send): {
+"username": string,
+"firstName": string,
+"lastName": string,
+"password": string.
+"role": string,
+"organizationName": string
+}
+```
 
-- POST to [https://classroom-angel-development.herokuapp.com/api/login/](https://classroom-angel-development.herokuapp.com/api/login/) - log in a user
+- POST to [https://classroom-angel-development.herokuapp.com/api/users/login/](https://classroom-angel-development.herokuapp.com/api/login/) - log in a user
 
 | URL Params | Body                | Returns              |
 | ---------- | ------------------- | -------------------- |
 | N/A        | Login object (send) | User object (return) |
 
-> Login object (send): {
-> "username": string,
-> "password": string.
-> }
+```Login object (send): {
+"username": string,
+"password": string.
+}
+```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/users/id](https://classroom-angel-development.herokuapp.com/api/users/id) - update a specific user
 
