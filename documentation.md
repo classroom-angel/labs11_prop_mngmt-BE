@@ -3,9 +3,10 @@
 ## Teacher Attendance
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
-  | URL Params | Body | Returns |
-  | ---------- | ------------------------ | -------------------------- |
-  | N/A | N/A | All attendance objects (return) |
+
+  | URL Params | Body | Returns                         |
+  | ---------- | ---- | ------------------------------- |
+  | N/A        | N/A  | All attendance objects (return) |
 
 ```Attendance object (return): {
   "id": integer,
