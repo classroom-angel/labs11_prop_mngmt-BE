@@ -2,17 +2,28 @@ const db = require('../../dbConfig');
 
 const create = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, issueId } = req.body;
 
-    const tagResponse = await db('tags').insert({
-      name
-    });
+    const [tag] = await db('tags')
+      .insert({
+        name
+      })
+      .returning('*');
 
-    if (tagResponse) {
-      res.status(200).json({ tagResponse });
+    if (tag) {
+      if (issueId) {
+        var [issueJoinTag] = await db('issues_join_tags')
+          .insert({
+            issue_id: issueId,
+            tag_id: tag.id
+          })
+          .returning('*');
+      }
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
+
+    res.status(200).json({ tag, issueJoinTag });
   } catch (error) {
     res.status(500).json({ error });
   }
