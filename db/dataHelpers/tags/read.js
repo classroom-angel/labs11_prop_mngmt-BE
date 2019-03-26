@@ -2,9 +2,9 @@ const db = require('../../dbConfig');
 
 const read = async (req, res) => {
   try {
-    const issues = await db('tags');
-    if (issues.length) {
-      res.status(200).json({ issues });
+    const tags = await db('tags');
+    if (tags.length) {
+      res.status(200).json({ tags });
     } else {
       res.status(404).json({ error: 'No tags were found.' });
     }

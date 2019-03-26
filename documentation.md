@@ -27,6 +27,12 @@ Attendance object (return): {
 }
 ```
 
+- GET to [https://classroom-angel-development.herokuapp.com/api/attendance/id](https://classroom-angel-development.herokuapp.com/api/attendance/id) - retrieve a specific attendance record
+
+  | URL Params | Body | Returns                    |
+  | ---------- | ---- | -------------------------- |
+  | N/A        | N/A  | Attendance object (return) |
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - create attendance record
 
 | URL Params | Body                     | Returns                    |
@@ -72,6 +78,12 @@ Comment object (return): {
 }
 ```
 
+- GET to [https://classroom-angel-development.herokuapp.com/api/comments/id](https://classroom-angel-development.herokuapp.com/api/comments/id) - retrieve a specific issue comment
+
+| URL Params | Body | Returns                 |
+| ---------- | ---- | ----------------------- |
+| N/A        | N/A  | Comment object (return) |
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/comments/](https://classroom-angel-development.herokuapp.com/api/comments/) - create an issue comment
 
 | URL Params | Body                  | Returns                 |
@@ -101,7 +113,7 @@ Comment object (send): {
 
 ## Equipment
 
-- GET to [https://classroom-angel-development.herokuapp.com/api/equipment/](https://classroom-angel-development.herokuapp.com/api/equipment/) - retrieve all issue comments
+- GET to [https://classroom-angel-development.herokuapp.com/api/equipment/](https://classroom-angel-development.herokuapp.com/api/equipment/) - retrieve all equipment
 
 | URL Params | Body | Returns                        |
 | ---------- | ---- | ------------------------------ |
@@ -117,6 +129,12 @@ Equipment object (return): {
   "organization_id": integer
 }
 ```
+
+- GET to [https://classroom-angel-development.herokuapp.com/api/equipment/id](https://classroom-angel-development.herokuapp.com/api/equipment/id) - retrieve a specific equipment record
+
+| URL Params | Body | Returns                   |
+| ---------- | ---- | ------------------------- |
+| N/A        | N/A  | Equipment object (return) |
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/equipment/](https://classroom-angel-development.herokuapp.com/api/equipment/) - create an issue comment
 
@@ -149,7 +167,7 @@ Equipment object (send): {
 
 ## Issues
 
-- GET to [https://classroom-angel-development.herokuapp.com/api/issues/](https://classroom-angel-development.herokuapp.com/api/issues/) - retrieve all issue comments
+- GET to [https://classroom-angel-development.herokuapp.com/api/issues/](https://classroom-angel-development.herokuapp.com/api/issues/) - retrieve all issues
 
 | URL Params | Body | Returns                     |
 | ---------- | ---- | --------------------------- |
@@ -166,6 +184,12 @@ Issues object (return): {
   "organization_id": integer
 }
 ```
+
+- GET to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - retrieve a specific issue
+
+| URL Params | Body | Returns                |
+| ---------- | ---- | ---------------------- |
+| N/A        | N/A  | Issues object (return) |
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/issues/](https://classroom-angel-development.herokuapp.com/api/issues/) - create an issue
 
@@ -214,6 +238,12 @@ Organization object (return): {
 }
 ```
 
+- GET to [https://classroom-angel-development.herokuapp.com/api/organizations/id](https://classroom-angel-development.herokuapp.com/api/organizations/id) - retrieve a specific organization
+
+| URL Params | Body | Returns                      |
+| ---------- | ---- | ---------------------------- |
+| N/A        | N/A  | Organization object (return) |
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/organizations/](https://classroom-angel-development.herokuapp.com/api/organizations/) - create an organization
 
 | URL Params | Body                | Returns                |
@@ -258,6 +288,12 @@ Solution object (return): {
 }
 ```
 
+- GET to [https://classroom-angel-development.herokuapp.com/api/solutions/id](https://classroom-angel-development.herokuapp.com/api/solutions/id) - retrieve a specific solution
+
+| URL Params | Body | Returns                  |
+| ---------- | ---- | ------------------------ |
+| N/A        | N/A  | Solution object (return) |
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/solutions/](https://classroom-angel-development.herokuapp.com/api/solutions/) - create an organization
 
 | URL Params | Body                   | Returns                  |
@@ -298,6 +334,12 @@ Tag object (return): {
   "name": string
 }
 ```
+
+- GET to [https://classroom-angel-development.herokuapp.com/api/tags/id](https://classroom-angel-development.herokuapp.com/api/tags/id) - retrieve a specific tag
+
+| URL Params | Body | Returns             |
+| ---------- | ---- | ------------------- |
+| N/A        | N/A  | Tag object (return) |
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/tags/](https://classroom-angel-development.herokuapp.com/api/tags/) - create a tag
 
@@ -343,6 +385,12 @@ User object (return): {
   "organization_id": integer
 }
 ```
+
+- GET to [https://classroom-angel-development.herokuapp.com/api/users/id](https://classroom-angel-development.herokuapp.com/api/users/id) - retrieve a specfic user
+
+| URL Params | Body | Returns              |
+| ---------- | ---- | -------------------- |
+| N/A        | N/A  | User object (return) |
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/users/register/](https://classroom-angel-development.herokuapp.com/api/register/) - register a user
 

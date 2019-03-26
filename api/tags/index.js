@@ -1,8 +1,15 @@
 const router = require('express').Router();
-const { create, read, update, deleted } = require('../../db/dataHelpers/tags');
+const {
+  create,
+  read,
+  update,
+  deleted,
+  getById
+} = require('../../db/dataHelpers/tags');
 
-router.get('', read);
 router.post('', create);
+router.get('', read);
+router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', deleted);
 
