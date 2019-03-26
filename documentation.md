@@ -3,18 +3,18 @@
 ## Teacher Attendance
 
 - GET to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - retrieve all attendance records
+  | URL Params | Body | Returns |
+  | ---------- | ------------------------ | -------------------------- |
+  | N/A | N/A | All attendance objects (return) |
 
-  | URL Params | Body | Returns                         |
-  | ---------- | ---- | ------------------------------- |
-  | N/A        | N/A  | All attendance objects (return) |
-
-```Attendance object (return): {
+```
+Attendance object (return): {
   "id": integer,
   "last_in": integer,
   "last_out": integer,
   "total_minutes_missed": integer,
   "expected_hours": integer
-  }
+}
 ```
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/attendance/](https://classroom-angel-development.herokuapp.com/api/attendance/) - create attendance record
@@ -25,11 +25,11 @@
 
 ```
 Attendance object (send): {
-"id": integer,
-"lastIn": integer,
-"lastOut": integer,
-"totalMinutesMissed": integer,
-"expectedHours": integer
+  "id": integer,
+  "lastIn": integer,
+  "lastOut": integer,
+  "totalMinutesMissed": integer,
+  "expectedHours": integer
 }
 ```
 
@@ -53,11 +53,12 @@ Attendance object (send): {
 | ---------- | ---- | ---------------------------- |
 | N/A        | N/A  | All comment objects (return) |
 
-```Comment object (return): {
-"id": integer,
-"content": string,
-"user_id": integer,
-"issue_id": integer
+```
+Comment object (return): {
+  "id": integer,
+  "content": string,
+  "user_id": integer,
+  "issue_id": integer
 }
 ```
 
@@ -67,11 +68,12 @@ Attendance object (send): {
 | ---------- | --------------------- | ----------------------- |
 | N/A        | Comment object (send) | Comment object (return) |
 
-```Comment object (send): {
-"id": integer,
-"content": string,
-"userId": integer,
-"issueId": integer
+```
+Comment object (send): {
+  "id": integer,
+  "content": string,
+  "userId": integer,
+  "issueId": integer
 }
 ```
 
@@ -95,13 +97,14 @@ Attendance object (send): {
 | ---------- | ---- | ------------------------------ |
 | N/A        | N/A  | All equipment objects (return) |
 
-```Equipment object (return): {
-"id": integer,
-"name": string,
-"description": string,
-"working": integer,
-"damaged": integer,
-"organization_id": integer
+```
+Equipment object (return): {
+  "id": integer,
+  "name": string,
+  "description": string,
+  "working": integer,
+  "damaged": integer,
+  "organization_id": integer
 }
 ```
 
@@ -111,13 +114,14 @@ Attendance object (send): {
 | ---------- | ----------------------- | ------------------------- |
 | N/A        | Equipment object (send) | Equipment object (return) |
 
-```Equipment object (send): {
-"id": integer,
-"name": string,
-"description": string,
-"working": integer,
-"damaged": integer,
-"organizationName": string
+```
+Equipment object (send): {
+  "id": integer,
+  "name": string,
+  "description": string,
+  "working": integer,
+  "damaged": integer,
+  "organizationName": string
 }
 ```
 
@@ -141,14 +145,15 @@ Attendance object (send): {
 | ---------- | ---- | --------------------------- |
 | N/A        | N/A  | All issues objects (return) |
 
-```Issues object (return): {
-"id": integer,
-"date": string (MM-DD-YY),
-"name": string,
-"notes": string,
-"status": string,
-"is_visit": boolean,
-"organization_id": integer
+```
+Issues object (return): {
+  "id": integer,
+  "date": string (MM-DD-YY),
+  "name": string,
+  "notes": string,
+  "status": string,
+  "is_visit": boolean,
+  "organization_id": integer
 }
 ```
 
@@ -158,15 +163,16 @@ Attendance object (send): {
 | ---------- | ------------------- | ---------------------- |
 | N/A        | Issue object (send) | Issues object (return) |
 
-```Issues object (send): {
-"id": integer,
-"date": string (MM-DD-YY),
-"name": string,
-"notes": string,
-"status": string, ("Needs attention", "Fixed", etc.)
-"is_visit": boolean,
-"organizationId": string,
-"equipmentId": integer
+```
+Issues object (send): {
+  "id": integer,
+  "date": string (MM-DD-YY),
+  "name": string,
+  "notes": string,
+  "status": string, ("Needs attention", "Fixed", etc.)
+  "is_visit": boolean,
+  "organizationId": string,
+  "equipmentId": integer
 }
 ```
 
@@ -190,12 +196,13 @@ Attendance object (send): {
 | ---------- | ---- | --------------------------------- |
 | N/A        | N/A  | All organization objects (return) |
 
-```Organization object (return): {
-"id": integer,
-"name": string,
-"city": string,
-"country": string,
-"expected_hours": integer
+```
+Organization object (return): {
+  "id": integer,
+  "name": string,
+  "city": string,
+  "country": string,
+  "expected_hours": integer
 }
 ```
 
@@ -205,12 +212,13 @@ Attendance object (send): {
 | ---------- | ------------------- | ---------------------- |
 | N/A        | Issue object (send) | Issues object (return) |
 
-```Organization object (return): {
-"id": integer,
-"name": string,
-"city": string,
-"country": string,
-"expectedHours": integer
+```
+Organization object (return): {
+  "id": integer,
+  "name": string,
+  "city": string,
+  "country": string,
+  "expectedHours": integer
 }
 ```
 
@@ -234,10 +242,11 @@ Attendance object (send): {
 | ---------- | ---- | ----------------------------- |
 | N/A        | N/A  | All solution objects (return) |
 
-```Solution object (return): {
-"id": integer,
-"date": string (MM_DD_YY),
-"time": string (HH:MM AM/PM)
+```
+Solution object (return): {
+  "id": integer,
+  "date": string (MM_DD_YY),
+  "time": string (HH:MM AM/PM)
 }
 ```
 
@@ -247,10 +256,11 @@ Attendance object (send): {
 | ---------- | ---------------------- | ------------------------ |
 | N/A        | Solution object (send) | Solution object (return) |
 
-```Solution object (send): {
-"id": integer,
-"date": string (MM_DD_YY),
-"time": string (HH:MM AM/PM)
+```
+Solution object (send): {
+  "id": integer,
+  "date": string (MM_DD_YY),
+  "time": string (HH:MM AM/PM)
 }
 ```
 
@@ -274,9 +284,10 @@ Attendance object (send): {
 | ---------- | ---- | ------------------------ |
 | N/A        | N/A  | All tag objects (return) |
 
-```Tag object (return): {
-"id": integer,
-"name": string
+```
+Tag object (return): {
+  "id": integer,
+  "name": string
 }
 ```
 
@@ -286,9 +297,10 @@ Attendance object (send): {
 | ---------- | ----------------- | ------------------- |
 | N/A        | Tag object (send) | Tag object (return) |
 
-```Tag object (send): {
-"id": integer,
-"name": string
+```
+Tag object (send): {
+  "id": integer,
+  "name": string
 }
 ```
 
@@ -312,14 +324,15 @@ Attendance object (send): {
 | ---------- | ---- | ------------------------- |
 | N/A        | N/A  | All user objects (return) |
 
-```User object (return): {
-"id": integer,
-"username": string,
-"first_name": string,
-"last_name": string,
-"password": string,
-"role": string,
-"organization_id": integer
+```
+User object (return): {
+  "id": integer,
+  "username": string,
+  "first_name": string,
+  "last_name": string,
+  "password": string,
+  "role": string,
+  "organization_id": integer
 }
 ```
 
@@ -329,13 +342,14 @@ Attendance object (send): {
 | ---------- | ---------------------- | -------------------- |
 | N/A        | Register object (send) | User object (return) |
 
-```Register object (send): {
-"username": string,
-"firstName": string,
-"lastName": string,
-"password": string.
-"role": string,
-"organizationName": string
+```
+Register object (send): {
+  "username": string,
+  "firstName": string,
+  "lastName": string,
+  "password": string.
+  "role": string,
+  "organizationName": string
 }
 ```
 
@@ -345,9 +359,10 @@ Attendance object (send): {
 | ---------- | ------------------- | -------------------- |
 | N/A        | Login object (send) | User object (return) |
 
-```Login object (send): {
-"username": string,
-"password": string.
+```
+Login object (send): {
+  "username": string,
+  "password": string.
 }
 ```
 
