@@ -13,27 +13,32 @@ const update = async (req, res) => {
       equipmentId
     } = req.body;
 
-    const [issue] = await db('issues')
-      .where({ id })
-      .update({
-        date,
-        name,
-        notes,
-        status,
-        is_visit: isVisit,
-        organization_id: organizationId
-      })
-      .returning('*');
+    if (
+      date ||
+      name ||
+      notes ||
+      status ||
+      isVisit !== undefined ||
+      organizationId
+    ) {
+      var [issue] = await db('issues')
+        .where({ id })
+        .update({
+          date,
+          name,
+          notes,
+          status,
+          is_visit: isVisit,
+          organization_id: organizationId
+        })
+        .returning('*');
+    }
 
-    if (issue) {
-      if (equipmentId) {
-        var [equipmentJoinIssue] = await db('equipment_join_issues')
-          .where('issue_id', id)
-          .update({ equipment_id: equipmentId })
-          .returning('*');
-      }
-    } else {
-      res.status(400).json({ error: 'Could not update issue in database.' });
+    if (equipmentId) {
+      var [equipmentJoinIssue] = await db('equipment_join_issues')
+        .where('issue_id', id)
+        .update({ equipment_id: equipmentId })
+        .returning('*');
     }
 
     res.status(200).json({ issue, equipmentJoinIssue });
