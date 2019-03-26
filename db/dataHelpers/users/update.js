@@ -16,10 +16,15 @@ const update = async (req, res) => {
       organizationName
     } = req.body;
 
-    const { orgId } = readByName(organizationName);
-    const hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
+    if (orgId) {
+      var { orgId } = readByName(organizationName);
+    }
 
-    const updateResponse = await db('users')
+    if (password) {
+      var hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
+    }
+
+    const [user] = await db('users')
       .where('id', id)
       .update({
         username,
@@ -28,10 +33,11 @@ const update = async (req, res) => {
         password: hash,
         role,
         organization_id: orgId
-      });
+      })
+      .returning('*');
 
-    if (updateResponse) {
-      res.status(200).json({ updateResponse });
+    if (user) {
+      res.status(200).json({ user });
     } else {
       res.status(400).json({ error: 'Could not update user in database.' });
     }

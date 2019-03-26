@@ -4,12 +4,13 @@ const deleted = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const deleteResponse = await db('users')
+    const [user] = await db('users')
       .where('id', id)
-      .del();
+      .del()
+      .returning('*');
 
-    if (deleteResponse) {
-      res.status(200).json({ deleteResponse });
+    if (user) {
+      res.status(200).json({ user });
     } else {
       res.status(400).json({
         error: "You are trying to delete something that's not there."

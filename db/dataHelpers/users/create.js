@@ -19,17 +19,19 @@ const register = async (req, res) => {
 
     const { id } = readByName(organizationName);
 
-    const userResponse = await db('users').insert({
-      username,
-      first_name: firstName,
-      last_name: lastName,
-      password: hash,
-      role,
-      organization_id: id
-    });
+    const [user] = await db('users')
+      .insert({
+        username,
+        first_name: firstName,
+        last_name: lastName,
+        password: hash,
+        role,
+        organization_id: id
+      })
+      .returning('*');
 
-    if (userResponse) {
-      res.status(200).json({ userResponse });
+    if (user) {
+      res.status(200).json({ user });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
