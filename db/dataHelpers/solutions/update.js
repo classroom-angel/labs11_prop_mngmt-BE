@@ -3,20 +3,28 @@ const db = require('../../dbConfig');
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { date, time } = req.body;
+    const { date, time, issueId } = req.body;
 
-    const updateResponse = await db('solutions')
-      .where({ id })
-      .update({
-        date,
-        time
-      });
-
-    if (updateResponse) {
-      res.status(200).json({ updateResponse });
-    } else {
-      res.status(400).json({ error: 'Could not update solution in database.' });
+    if (date || time) {
+      var [solution] = await db('solutions')
+        .where({ id })
+        .update({
+          date,
+          time
+        })
+        .returning('*');
     }
+
+    if (issueId) {
+      var [issueJoinSolution] = await db('issues_join_solutions')
+        .where({ solution_id: id })
+        .update({
+          issue_id: issueId
+        })
+        .returning('*');
+    }
+
+    res.status(200).json({ solution, issueJoinSolution });
   } catch (error) {
     res.status(500).json({ error });
   }
