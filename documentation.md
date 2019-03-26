@@ -164,7 +164,7 @@ Attendance object (send): {
 "name": string,
 "notes": string,
 "status": string, ("Needs attention", "Fixed", etc.)
-"is_visit": boolean,
+"isVisit": boolean,
 "organizationId": string,
 "equipmentId": integer
 }
