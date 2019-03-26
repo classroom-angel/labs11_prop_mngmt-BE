@@ -5,17 +5,18 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
 
-    const updateResponse = await db('teacher_attendance')
+    const [attendance] = await db('teacher_attendance')
       .where({ id })
       .update({
         last_in: lastIn,
         last_out: lastOut,
         expected_hours: expectedHours,
         total_minutes_missed: totalMinutesMissed
-      });
+      })
+      .returning('*');
 
-    if (updateResponse) {
-      res.status(200).json({ updateResponse });
+    if (attendance) {
+      res.status(200).json({ attendance });
     } else {
       res
         .status(400)

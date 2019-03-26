@@ -4,15 +4,17 @@ const create = async (req, res) => {
   try {
     const { name, city, country, expectedHours } = req.body;
 
-    const orgResponse = await db('organizations').insert({
-      name,
-      city,
-      country,
-      expected_hours: expectedHours
-    });
+    const [organization] = await db('organizations')
+      .insert({
+        name,
+        city,
+        country,
+        expected_hours: expectedHours
+      })
+      .returning('*');
 
-    if (orgResponse) {
-      res.status(200).json({ orgResponse });
+    if (organization) {
+      res.status(200).json({ organization });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }

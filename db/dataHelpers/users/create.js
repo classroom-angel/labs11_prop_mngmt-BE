@@ -17,19 +17,21 @@ const register = async (req, res) => {
 
     const hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
 
-    const { id } = readByName(organizationName);
+    const { id } = await readByName(organizationName);
 
-    const userResponse = await db('users').insert({
-      username,
-      first_name: firstName,
-      last_name: lastName,
-      password: hash,
-      role,
-      organization_id: id
-    });
+    const [user] = await db('users')
+      .insert({
+        username,
+        first_name: firstName,
+        last_name: lastName,
+        password: hash,
+        role,
+        organization_id: id
+      })
+      .returning('*');
 
-    if (userResponse) {
-      res.status(200).json({ userResponse });
+    if (user) {
+      res.status(200).json({ user });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
