@@ -1,0 +1,5 @@
+# safe list
+branches:
+  only:
+  -master
+  -development
