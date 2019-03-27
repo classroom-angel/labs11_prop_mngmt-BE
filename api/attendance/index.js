@@ -4,11 +4,11 @@ const {
   read,
   update,
   deleted,
-  getById
+  readById
 } = require('../../db/dataHelpers/attendance');
 
 router.get('', read);
-router.get(':/id', getById);
+router.get(':/id', readById);
 router.post('', create);
 router.put('/:id', update);
 router.delete('/:id', deleted);

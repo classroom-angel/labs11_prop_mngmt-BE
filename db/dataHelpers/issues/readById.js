@@ -1,6 +1,6 @@
 const db = require('../../dbConfig');
 
-const getById = async (req, res) => {
+const readById = async (req, res) => {
   try {
     const { id } = req.params;
     const issue = await db('issues')
@@ -16,4 +16,4 @@ const getById = async (req, res) => {
   }
 };
 
-module.exports = getById;
+module.exports = readById;
