@@ -4,7 +4,6 @@ const read = require('./read');
 const readById = require('./readById');
 const update = require('./update');
 const deleted = require('./deleted');
-const generateToken = require('./generateToken');
 
 module.exports = {
   login,
@@ -12,8 +11,5 @@ module.exports = {
   read,
   readById,
   update,
-  deleted,
-  helpers: {
-    generateToken
-  }
+  deleted
 };
