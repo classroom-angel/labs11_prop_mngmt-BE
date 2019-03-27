@@ -4,7 +4,7 @@ const { keysToCamelCase } = require('../');
 const create = async (req, res) => {
   try {
     const { id, lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
-    const [attendance] = await db('teacher_attendance')
+    let [attendance] = await db('teacher_attendance')
       .insert({
         id,
         last_in: lastIn,

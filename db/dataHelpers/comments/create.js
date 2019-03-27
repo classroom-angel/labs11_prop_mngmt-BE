@@ -5,7 +5,7 @@ const create = async (req, res) => {
   try {
     const { content, userId, issueId } = req.body;
 
-    const [comment] = await db('comments')
+    let [comment] = await db('comments')
       .insert({
         content,
         user_id: userId,

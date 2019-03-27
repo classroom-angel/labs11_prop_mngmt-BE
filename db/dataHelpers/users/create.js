@@ -20,7 +20,7 @@ const register = async (req, res) => {
 
     const { id } = await readByName(organizationName);
 
-    const [user] = await db('users')
+    let [user] = await db('users')
       .insert({
         username,
         first_name: firstName,

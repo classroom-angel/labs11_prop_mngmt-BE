@@ -5,7 +5,7 @@ const joinIssue = require('./joinIssue');
 const readById = async (req, res) => {
   try {
     const { id } = req.params;
-    const tag = await db('tags')
+    let tag = await db('tags')
       .where({ id })
       .first();
     if (tag) {

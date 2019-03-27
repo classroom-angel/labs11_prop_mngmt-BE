@@ -5,7 +5,7 @@ const create = async (req, res) => {
   try {
     const { name, issueId } = req.body;
 
-    const [tag] = await db('tags')
+    let [tag] = await db('tags')
       .insert({
         name
       })

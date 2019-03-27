@@ -5,7 +5,7 @@ const create = async (req, res) => {
   try {
     const { name, city, country, expectedHours } = req.body;
 
-    const [organization] = await db('organizations')
+    let [organization] = await db('organizations')
       .insert({
         name,
         city,

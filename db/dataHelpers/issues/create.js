@@ -13,7 +13,7 @@ const create = async (req, res) => {
       equipmentId
     } = req.body;
 
-    const [issue] = await db('issues')
+    let [issue] = await db('issues')
       .insert({
         date,
         name,

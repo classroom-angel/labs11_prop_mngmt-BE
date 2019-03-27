@@ -4,7 +4,7 @@ const { keysToCamelCase } = require('../');
 const readById = async (req, res) => {
   try {
     const { id } = req.params;
-    const attendance = await db('teacher_attendance')
+    let attendance = await db('teacher_attendance')
       .where({ id })
       .first();
     if (attendance) {

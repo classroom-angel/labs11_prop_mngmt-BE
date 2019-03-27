@@ -6,7 +6,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
 
-    const [attendance] = await db('teacher_attendance')
+    let [attendance] = await db('teacher_attendance')
       .where({ id })
       .update({
         last_in: lastIn,

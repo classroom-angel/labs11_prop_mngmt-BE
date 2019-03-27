@@ -3,7 +3,7 @@ const { keysToCamelCase } = require('../');
 
 const read = async (req, res) => {
   try {
-    const equipment = await db('equipment');
+    let equipment = await db('equipment');
     if (equipment.length) {
       equipment = equipment.map(item => keysToCamelCase(item));
       res.status(200).json({ equipment });

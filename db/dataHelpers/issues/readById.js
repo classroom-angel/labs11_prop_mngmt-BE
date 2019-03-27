@@ -5,7 +5,7 @@ const { joinEquipment } = require('./joinEquipment');
 const readById = async (req, res) => {
   try {
     const { id } = req.params;
-    const issue = await db('issues')
+    let issue = await db('issues')
       .where({ id })
       .first();
     if (issue) {

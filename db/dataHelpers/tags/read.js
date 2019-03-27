@@ -4,7 +4,7 @@ const joinIssue = require('./joinIssue');
 
 const read = async (req, res) => {
   try {
-    const tags = await db('tags');
+    let tags = await db('tags');
     if (tags.length) {
       tags = tags.map(tag => keysToCamelCase(tag));
       tags = tags.map(tag => joinIssue(tag));

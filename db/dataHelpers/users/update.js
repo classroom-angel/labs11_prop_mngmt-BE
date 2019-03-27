@@ -25,7 +25,7 @@ const update = async (req, res) => {
       var hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
     }
 
-    const [user] = await db('users')
+    let [user] = await db('users')
       .where('id', id)
       .update({
         username,

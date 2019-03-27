@@ -5,7 +5,7 @@ const deleted = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const [organization] = await db('organizations')
+    let [organization] = await db('organizations')
       .where({ id })
       .del()
       .returning('*');

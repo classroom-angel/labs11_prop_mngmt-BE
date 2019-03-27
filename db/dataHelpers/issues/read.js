@@ -4,7 +4,7 @@ const { joinEquipment } = require('./joinEquipment');
 
 const read = async (req, res) => {
   try {
-    const issues = await db('issues');
+    let issues = await db('issues');
     if (issues.length) {
       issues = issues.map(issue => keysToCamelCase(issue));
 

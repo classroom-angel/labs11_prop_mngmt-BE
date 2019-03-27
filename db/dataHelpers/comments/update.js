@@ -6,7 +6,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { content, userId, issueId } = req.body;
 
-    const [comment] = await db('comments')
+    let [comment] = await db('comments')
       .where({ id })
       .update({
         content,

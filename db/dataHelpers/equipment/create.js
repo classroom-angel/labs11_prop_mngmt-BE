@@ -10,7 +10,7 @@ const create = async (req, res) => {
 
     const { id } = await readByName(organizationName);
 
-    const [equipment] = await db('equipment')
+    let [equipment] = await db('equipment')
       .insert({
         name,
         description,
