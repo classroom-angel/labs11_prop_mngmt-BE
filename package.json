@@ -10,7 +10,7 @@
     "dev": "nodemon index.js",
     "batch": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "start": "node index.js",
-    "test": "mocha"
+    "test": "npm run batch && mocha"
   },
   "repository": {
     "type": "git",
