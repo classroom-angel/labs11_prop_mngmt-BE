@@ -1,11 +1,13 @@
 const db = require('../../dbConfig');
 
-const create = async (req, res) => {
+const update = async (req, res) => {
   try {
+    const { id } = req.params;
     const { name, city, country, expectedHours } = req.body;
 
     const [organization] = await db('organizations')
-      .insert({
+      .where({ id })
+      .update({
         name,
         city,
         country,
@@ -16,11 +18,13 @@ const create = async (req, res) => {
     if (organization) {
       res.status(200).json({ organization });
     } else {
-      res.status(400).json({ error: 'You probably did a bad with your data.' });
+      res
+        .status(400)
+        .json({ error: 'Could not update organization in database.' });
     }
   } catch (error) {
     res.status(500).json({ error });
   }
 };
 
-module.exports = create;
+module.exports = update;

@@ -5,7 +5,7 @@ const {
   update,
   deleted,
   getById
-} = require('../../db/dataHelpers/organizations');
+} = require('../../db/dataHelpers/comments');
 
 router.post('', create);
 router.get('', read);

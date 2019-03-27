@@ -2,19 +2,18 @@ const db = require('../../dbConfig');
 
 const create = async (req, res) => {
   try {
-    const { name, city, country, expectedHours } = req.body;
+    const { content, userId, issueId } = req.body;
 
-    const [organization] = await db('organizations')
+    const [comment] = await db('comments')
       .insert({
-        name,
-        city,
-        country,
-        expected_hours: expectedHours
+        content,
+        user_id: userId,
+        issue_id: issueId
       })
       .returning('*');
 
-    if (organization) {
-      res.status(200).json({ organization });
+    if (comment) {
+      res.status(200).json({ comment });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }

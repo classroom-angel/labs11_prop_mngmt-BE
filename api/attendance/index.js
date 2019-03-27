@@ -5,11 +5,11 @@ const {
   update,
   deleted,
   getById
-} = require('../../db/dataHelpers/organizations');
+} = require('../../db/dataHelpers/attendance');
 
-router.post('', create);
 router.get('', read);
 router.get(':/id', getById);
+router.post('', create);
 router.put('/:id', update);
 router.delete('/:id', deleted);
 

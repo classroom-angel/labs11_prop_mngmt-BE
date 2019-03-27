@@ -1,12 +1,16 @@
+const login = require('./login');
 const create = require('./create');
 const read = require('./read');
-const login = require('./login');
+const update = require('./update');
+const deleted = require('./deleted');
 const generateToken = require('./generateToken');
 
 module.exports = {
+  login,
   create,
   read,
-  login,
+  update,
+  deleted,
   helpers: {
     generateToken
   }
