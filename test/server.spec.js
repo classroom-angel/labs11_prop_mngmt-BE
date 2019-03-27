@@ -88,6 +88,24 @@ describe('Unit tests for server/database', () => {
     );
   });
 
+  it('has required keys on comments POST route', async () => {
+    const response = await request(server)
+      .post('/api/comments/')
+      .send({
+        id: 3,
+        content: 'This was a successful day at the office.',
+        userId: 492,
+        issueId: 1
+      });
+
+    expect(response.body.comment).to.have.keys(
+      'id',
+      'content',
+      'userId',
+      'issueId'
+    );
+  });
+
   // equipment tests
   it('has required keys on equipment GET route', async () => {
     const response = await request(server).get('/api/equipment/');
