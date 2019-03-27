@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
   try {
@@ -32,6 +33,7 @@ const update = async (req, res) => {
           organization_id: organizationId
         })
         .returning('*');
+      issue = keysToCamelCase(issue);
     }
 
     if (equipmentId) {
@@ -39,6 +41,7 @@ const update = async (req, res) => {
         .where('issue_id', id)
         .update({ equipment_id: equipmentId })
         .returning('*');
+      equipmentJoinIssue = keysToCamelCase(equipmentJoinIssue);
     }
 
     res.status(200).json({ issue, equipmentJoinIssue });
