@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
   try {
@@ -24,6 +25,7 @@ const create = async (req, res) => {
       .returning('*');
 
     if (issue) {
+      issue = keysToCamelCase(issue);
       if (equipmentId) {
         var [equipmentJoinIssue] = await db('equipment_join_issues')
           .insert({
@@ -31,6 +33,7 @@ const create = async (req, res) => {
             issue_id: issue.id
           })
           .returning('*');
+        equipmentJoinIssue = keysToCamelCase(equipmentJoinIssue);
       }
 
       res.status(200).json({ issue, equipmentJoinIssue });
