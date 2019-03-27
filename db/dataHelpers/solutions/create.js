@@ -2,10 +2,11 @@ const db = require('../../dbConfig');
 
 const create = async (req, res) => {
   try {
-    const { date, time, issueId } = req.body;
+    const { name, date, time, issueId } = req.body;
 
     const [solution] = await db('solutions')
       .insert({
+        name,
         date,
         time
       })

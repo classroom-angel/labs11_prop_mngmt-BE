@@ -3,12 +3,13 @@ const db = require('../../dbConfig');
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { date, time, issueId } = req.body;
+    const { name, date, time, issueId } = req.body;
 
     if (date || time) {
       var [solution] = await db('solutions')
         .where({ id })
         .update({
+          name,
           date,
           time
         })
