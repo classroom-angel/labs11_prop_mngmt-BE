@@ -25,16 +25,16 @@ const keysToCamelCase = obj => {
   const keys = Object.keys(obj);
   const newObj = {};
 
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
+  for (let key of keys) {
     newObj[snakeToCamelCase(key)] = obj[key];
   }
 
   return newObj;
 };
 
+const db = require('../dbConfig');
 const joinIssue = async (obj, table, single) => {
-  const [joinIssue] = await db(`${table}_join_issues`)
+  const [joinIssue] = await db(`issues_join_${table}`)
     .where({ [`${single}_id`]: obj.id })
     .returning('*');
 

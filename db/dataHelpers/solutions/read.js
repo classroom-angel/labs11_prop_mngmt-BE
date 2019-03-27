@@ -8,6 +8,7 @@ const read = async (req, res) => {
     if (solutions.length) {
       solutions = solutions.map(solution => keysToCamelCase(solution));
       solutions = solutions.map(solution => joinIssue(solution));
+      solutions = await Promise.all(solutions);
       res.status(200).json({ solutions });
     } else {
       res.status(404).json({ error: 'No solutions were found.' });

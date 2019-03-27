@@ -10,12 +10,12 @@ const readById = async (req, res) => {
       .first();
     if (solution) {
       solution = keysToCamelCase(solution);
-      solution = joinIssue(solution);
+      solution = await joinIssue(solution);
     } else {
       res.status(404).json({ error: 'No solution was found.' });
     }
 
-    res.status(200).json({ solution, issueId });
+    res.status(200).json({ solution });
   } catch (error) {
     res.status(500).json({ error });
   }

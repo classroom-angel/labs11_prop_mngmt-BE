@@ -1,6 +1,6 @@
 const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
-const { joinEquipment } = require('./joinEquipment');
+const joinEquipment = require('./joinEquipment');
 
 const read = async (req, res) => {
   try {
@@ -9,6 +9,7 @@ const read = async (req, res) => {
       issues = issues.map(issue => keysToCamelCase(issue));
 
       issues = issues.map(joinEquipment);
+      issues = await Promise.all(issues);
 
       res.status(200).json({ issues });
     } else {

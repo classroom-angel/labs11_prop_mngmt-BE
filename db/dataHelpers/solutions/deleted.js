@@ -13,7 +13,7 @@ const deleted = async (req, res) => {
 
     if (solution) {
       solution = keysToCamelCase(solution);
-      solution = joinIssue(solution);
+      solution = await joinIssue(solution);
       res.status(200).json({ solution });
     } else {
       res.status(400).json({

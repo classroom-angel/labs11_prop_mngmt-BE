@@ -10,7 +10,7 @@ const readById = async (req, res) => {
       .first();
     if (tag) {
       tag = keysToCamelCase(tag);
-      tag = joinIssue(tag);
+      tag = await joinIssue(tag);
       res.status(200).json({ tag });
     } else {
       res.status(404).json({ error: 'No tag was found.' });

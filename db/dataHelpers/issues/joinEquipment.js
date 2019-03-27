@@ -1,3 +1,5 @@
+const db = require('../../dbConfig');
+
 const joinEquipment = async issue => {
   const [equipmentJoinIssue] = await db('equipment_join_issues')
     .where({
