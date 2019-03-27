@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const readById = async (req, res) => {
   try {
@@ -7,6 +8,7 @@ const readById = async (req, res) => {
       .where({ id })
       .first();
     if (equipment) {
+      equipment = keysToCamelCase(equipment);
       res.status(200).json({ equipment });
     } else {
       res.status(404).json({ error: 'No equipment found.' });
