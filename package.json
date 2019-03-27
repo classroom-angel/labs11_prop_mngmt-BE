@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "description": "The back end of the classroom angel app.",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "dev": "nodemon index.js",
     "batch": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,14 +29,18 @@
   "homepage": "https://github.com/classroom-angel/labs11_prop_mngmt-BE#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "jest": "^24.5.0",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.16.3",
+    "mocha": "^6.0.2",
     "moment": "^2.24.0",
-    "pg": "^7.9.0"
+    "pg": "^7.9.0",
+    "supertest": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
