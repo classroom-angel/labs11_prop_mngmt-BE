@@ -181,7 +181,8 @@ Issues object (return): {
   "notes": string,
   "status": string,
   "isVisit": boolean,
-  "organizationId": integer
+  "organizationId": integer,
+  "equipmentId": integer (when applicable)
 }
 ```
 
@@ -205,7 +206,7 @@ Issues object (return): {
 "status": string, ("Needs attention", "Fixed", etc.)
 "isVisit": boolean,
 "organizationId": string,
-"equipmentId": integer
+"equipmentId": integer (when applicable)
 ```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - update a specific issue comment
@@ -285,7 +286,8 @@ Solution object (return): {
   "id": integer,
   "name": string,
   "date": string (MM_DD_YY),
-  "time": string (HH:MM AM/PM)
+  "time": string (HH:MM AM/PM),
+  "issueId": integer
 }
 ```
 
@@ -333,7 +335,8 @@ Solution object (send): {
 ```
 Tag object (return): {
   "id": integer,
-  "name": string
+  "name": string,
+  "issueId": integer
 }
 ```
 
