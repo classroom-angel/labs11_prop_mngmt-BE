@@ -33,8 +33,21 @@ const keysToCamelCase = obj => {
   return newObj;
 };
 
+const joinIssue = async (obj, cond, table) => {
+  const [joinIssue] = await db(table)
+    .where(cond)
+    .returning('*');
+
+  if (joinIssue) {
+    return { ...obj, issueId: joinIssue.issue_id };
+  }
+
+  return obj;
+};
+
 module.exports = {
   forEachFile,
   camelToSnakeCase,
-  keysToCamelCase
+  keysToCamelCase,
+  joinIssue
 };
