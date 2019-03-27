@@ -3,5 +3,5 @@ language: node_js
 # safe list
 branches:
   only:
-  -master
-  -development
+    -master
+    -development
