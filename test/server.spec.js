@@ -133,6 +133,28 @@ describe('Unit tests for server/database', () => {
     );
   });
 
+  it('has required keys on equipment POST route', async () => {
+    const response = await request(server)
+      .post('/api/equipment/')
+      .send({
+        id: 3,
+        name: 'Footballs',
+        description: 'The old pigskin',
+        working: 83,
+        damaged: 17,
+        organizationName: 'Evil Corp'
+      });
+
+    expect(response.body.equipment).to.have.keys(
+      'id',
+      'name',
+      'description',
+      'working',
+      'damaged',
+      'organizationId'
+    );
+  });
+
   // issues tests
   it('has required keys on issues GET route', async () => {
     const response = await request(server).get('/api/issues/');
@@ -150,6 +172,31 @@ describe('Unit tests for server/database', () => {
 
   it('has required keys on issues GET ID route', async () => {
     const response = await request(server).get('/api/issues/1');
+
+    expect(response.body.issue).to.have.keys(
+      'id',
+      'date',
+      'name',
+      'notes',
+      'status',
+      'isVisit',
+      'organizationId'
+    );
+  });
+
+  it('has required keys on issues POST route', async () => {
+    const response = await request(server)
+      .post('/api/issues/')
+      .send({
+        id: 3,
+        date: '03-27-19',
+        name: 'Footballs deflated',
+        notes: 'We need to fix these ones so the kids can play!',
+        status: 'Needs attention',
+        isVisit: true,
+        organizationId: 1,
+        equipmentId: 3
+      });
 
     expect(response.body.issue).to.have.keys(
       'id',
@@ -187,6 +234,26 @@ describe('Unit tests for server/database', () => {
     );
   });
 
+  it('has required keys on organizations POST route', async () => {
+    const response = await request(server)
+      .post('/api/organizations/')
+      .send({
+        id: 3,
+        name: 'Medium Corp',
+        city: 'Philadelphia',
+        country: 'USA',
+        expectedHours: 40
+      });
+
+    expect(response.body.organization).to.have.keys(
+      'id',
+      'name',
+      'city',
+      'country',
+      'expectedHours'
+    );
+  });
+
   // solutions tests
   it('has required keys on solutions GET route', async () => {
     const response = await request(server).get('/api/solutions/');
@@ -212,6 +279,19 @@ describe('Unit tests for server/database', () => {
     );
   });
 
+  it('has required keys on solutions POST route', async () => {
+    const response = await request(server)
+      .post('/api/solutions/')
+      .send({
+        id: 2,
+        name: 'Football patches',
+        date: '04-15-19',
+        time: '4:15 PM'
+      });
+
+    expect(response.body.solution).to.have.keys('id', 'name', 'date', 'time');
+  });
+
   // tags tests
   it('has required keys on tags GET route', async () => {
     const response = await request(server).get('/api/tags/');
@@ -223,6 +303,17 @@ describe('Unit tests for server/database', () => {
     const response = await request(server).get('/api/tags/1');
 
     expect(response.body.tag).to.have.keys('id', 'name', 'issueId');
+  });
+
+  it('has required keys on tags POST route', async () => {
+    const response = await request(server)
+      .post('/api/tags/')
+      .send({
+        id: 3,
+        name: 'Sports'
+      });
+
+    expect(response.body.tag).to.have.keys('id', 'name');
   });
 
   // users tests
@@ -242,6 +333,29 @@ describe('Unit tests for server/database', () => {
 
   it('has required keys on users GET ID route', async () => {
     const response = await request(server).get('/api/users/1');
+
+    expect(response.body.user).to.have.keys(
+      'id',
+      'username',
+      'firstName',
+      'lastName',
+      'password',
+      'role',
+      'organizationId'
+    );
+  });
+
+  it('has required keys on users register POST route', async () => {
+    const response = await request(server)
+      .post('/api/users/register')
+      .send({
+        username: 'greg.davis@gmail.com',
+        firstName: 'Greg',
+        lastName: 'Davis',
+        password: 'hgfdeuhijidjd51d6545',
+        role: 'teacher',
+        organizationName: 'Evil Corp'
+      });
 
     expect(response.body.user).to.have.keys(
       'id',
