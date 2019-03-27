@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const deleted = async (req, res) => {
   try {
@@ -10,6 +11,7 @@ const deleted = async (req, res) => {
       .returning('*');
 
     if (attendance) {
+      attendance = keysToCamelCase(attendance);
       res.status(200).json({ attendance });
     } else {
       res.status(400).json({

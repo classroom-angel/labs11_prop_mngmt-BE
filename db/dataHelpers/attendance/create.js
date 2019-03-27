@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
   try {
@@ -14,6 +15,7 @@ const create = async (req, res) => {
       .returning('*');
 
     if (attendance) {
+      attendance = keysToCamelCase(attendance);
       res.status(200).json({ attendance });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
