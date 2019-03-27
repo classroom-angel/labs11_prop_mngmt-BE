@@ -18,7 +18,7 @@ for (let i = 1; i < 500; i++) {
   const role = roles[Math.floor(Math.random() * roles.length)];
 
   const user = {
-    username,
+    username: firstName + username + lastName,
     first_name: firstName,
     last_name: lastName,
     role,

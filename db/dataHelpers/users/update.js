@@ -3,26 +3,14 @@ const { keysToCamelCase } = require('../');
 const {
   helpers: { readByName }
 } = require('../organizations');
-const bcrypt = require('bcryptjs');
 
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const {
-      username,
-      firstName,
-      lastName,
-      password,
-      role,
-      organizationName
-    } = req.body;
+    const { username, firstName, lastName, role, organizationName } = req.body;
 
     if (orgId) {
       var { orgId } = readByName(organizationName);
-    }
-
-    if (password) {
-      var hash = bcrypt.hashSync(password, Number(process.env.HASH_SALT) || 12);
     }
 
     let [user] = await db('users')
@@ -31,7 +19,6 @@ const update = async (req, res) => {
         username,
         first_name: firstName,
         last_name: lastName,
-        password: hash,
         role,
         organization_id: orgId
       })
