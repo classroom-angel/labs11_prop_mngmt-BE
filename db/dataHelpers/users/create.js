@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 const {
   helpers: { readByName }
 } = require('../organizations');
@@ -31,6 +32,7 @@ const register = async (req, res) => {
       .returning('*');
 
     if (user) {
+      user = keysToCamelCase(user);
       res.status(200).json({ user });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
