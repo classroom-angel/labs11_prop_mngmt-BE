@@ -33,9 +33,9 @@ const keysToCamelCase = obj => {
   return newObj;
 };
 
-const joinIssue = async (obj, cond, table) => {
-  const [joinIssue] = await db(table)
-    .where(cond)
+const joinIssue = async (obj, table, single) => {
+  const [joinIssue] = await db(`${table}_join_issues`)
+    .where({ [`${single}_id`]: obj.id })
     .returning('*');
 
   if (joinIssue) {

@@ -1,5 +1,6 @@
 const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
+const joinIssue = require('./joinIssue');
 
 const deleted = async (req, res) => {
   try {
@@ -12,6 +13,7 @@ const deleted = async (req, res) => {
 
     if (solution) {
       solution = keysToCamelCase(solution);
+      solution = joinIssue(solution);
       res.status(200).json({ solution });
     } else {
       res.status(400).json({
