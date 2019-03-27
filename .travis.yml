@@ -1,7 +1,3 @@
-# language
+branches: 
+  only: "-master -development"
 language: node_js
-# safe list
-branches:
-  only:
-    -master
-    -development
