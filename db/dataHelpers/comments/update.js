@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
   try {
@@ -15,6 +16,7 @@ const update = async (req, res) => {
       .returning('*');
 
     if (comment) {
+      comment = keysToCamelCase(comment);
       res.status(200).json({ comment });
     } else {
       res
