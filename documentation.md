@@ -20,10 +20,10 @@
 ```
 Attendance object (return): {
   "id": integer,
-  "last_in": integer,
-  "last_out": integer,
-  "total_minutes_missed": integer,
-  "expected_hours": integer
+  "lastIn": integer,
+  "lastOut": integer,
+  "totalMinutesMissed": integer,
+  "expectedHours": integer
 }
 ```
 
@@ -73,8 +73,8 @@ Attendance object (send): {
 Comment object (return): {
   "id": integer,
   "content": string,
-  "user_id": integer,
-  "issue_id": integer
+  "userId": integer,
+  "issueId": integer
 }
 ```
 
@@ -126,7 +126,7 @@ Equipment object (return): {
   "description": string,
   "working": integer,
   "damaged": integer,
-  "organization_id": integer
+  "organizationId": integer
 }
 ```
 
@@ -180,8 +180,8 @@ Issues object (return): {
   "name": string,
   "notes": string,
   "status": string,
-  "is_visit": boolean,
-  "organization_id": integer
+  "isVisit": boolean,
+  "organizationId": integer
 }
 ```
 
@@ -234,7 +234,7 @@ Organization object (return): {
   "name": string,
   "city": string,
   "country": string,
-  "expected_hours": integer
+  "expectedHours": integer
 }
 ```
 
@@ -380,11 +380,11 @@ Tag object (send): {
 User object (return): {
   "id": integer,
   "username": string,
-  "first_name": string,
-  "last_name": string,
+  "firstName": string,
+  "lastName": string,
   "password": string,
   "role": string,
-  "organization_id": integer
+  "organizationId": integer
 }
 ```
 
