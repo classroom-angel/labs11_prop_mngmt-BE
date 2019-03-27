@@ -9,7 +9,7 @@ const {
 
 router.post('', create);
 router.get('', read);
-router.get(':/id', readById);
+router.get('/:id', readById);
 router.put('/:id', update);
 router.delete('/:id', deleted);
 
