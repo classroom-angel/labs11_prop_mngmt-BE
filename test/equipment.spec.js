@@ -42,7 +42,7 @@ describe('Unit tests for equipment', () => {
 
   it('has required keys on equipment PUT route', async () => {
     const response = await request(server)
-      .put('/api/equipment/3')
+      .put(`${route}/3`)
       .send({
         name: 'Basketballs',
         description: 'The old round orange ball',
@@ -51,26 +51,12 @@ describe('Unit tests for equipment', () => {
         organizationName: 'Evil Corp'
       });
 
-    expect(response.body.equipment).to.have.keys(
-      'id',
-      'name',
-      'description',
-      'working',
-      'damaged',
-      'organizationId'
-    );
+    expect(response.body.equipment).to.have.keys(...equipmentFields);
   });
 
   it('has required keys on equipment DELETE route', async () => {
-    const response = await request(server).delete('/api/equipment/3');
+    const response = await request(server).delete(`${route}/3`);
 
-    expect(response.body.equipment).to.have.keys(
-      'id',
-      'name',
-      'description',
-      'working',
-      'damaged',
-      'organizationId'
-    );
+    expect(response.body.equipment).to.have.keys(...equipmentFields);
   });
 });
