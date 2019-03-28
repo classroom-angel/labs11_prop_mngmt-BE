@@ -39,9 +39,9 @@ describe('Unit tests for users', () => {
     expect(response.body.user).to.have.keys(...userFields);
   });
 
-  it('has required keys on users register PUT route', async () => {
+  it('has required keys on users PUT route', async () => {
     const response = await request(server)
-      .put(`${route}/501`)
+      .put(`${route}/2`)
       .send({
         username: 'tom.davies@gmail.com',
         firstName: 'Tom',
@@ -53,8 +53,8 @@ describe('Unit tests for users', () => {
     expect(response.body.user).to.have.keys(...userFields);
   });
 
-  it('has required keys on users register DELETE route', async () => {
-    const response = await request(server).delete(`${route}/501`);
+  it('has required keys on users DELETE route', async () => {
+    const response = await request(server).del(`${route}/450`);
 
     expect(response.body.user).to.have.keys(...userFields);
   });
