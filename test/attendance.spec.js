@@ -3,33 +3,30 @@ const server = require('../index');
 const expect = require('chai').expect;
 
 describe('Unit tests for attendance', () => {
-  it('has required keys on attendance GET route', async () => {
-    const response = await request(server).get('/api/attendance/');
+  const route = '/api/attendance';
+  const attendanceFields = [
+    'expectedHours',
+    'id',
+    'lastIn',
+    'lastOut',
+    'totalMinutesMissed'
+  ];
 
-    expect(response.body.attendance[0]).to.have.keys(
-      'expectedHours',
-      'id',
-      'lastIn',
-      'lastOut',
-      'totalMinutesMissed'
-    );
+  it('has required keys on attendance GET route', async () => {
+    const response = await request(server).get(route);
+
+    expect(response.body.attendance[0]).to.have.keys(...attendanceFields);
   });
 
   it('has required keys on attendance GET ID route', async () => {
-    const response = await request(server).get('/api/attendance/1');
+    const response = await request(server).get(`${route}/1`);
 
-    expect(response.body.attendance).to.have.keys(
-      'expectedHours',
-      'id',
-      'lastIn',
-      'lastOut',
-      'totalMinutesMissed'
-    );
+    expect(response.body.attendance).to.have.keys(...attendanceFields);
   });
 
   it('has required keys on attendance POST route', async () => {
     const response = await request(server)
-      .post('/api/attendance/')
+      .post(route)
       .send({
         id: 3,
         lastIn: 10,
@@ -38,12 +35,6 @@ describe('Unit tests for attendance', () => {
         expectedHours: 40
       });
 
-    expect(response.body.attendance).to.have.keys(
-      'expectedHours',
-      'id',
-      'lastIn',
-      'lastOut',
-      'totalMinutesMissed'
-    );
+    expect(response.body.attendance).to.have.keys(...attendanceFields);
   });
 });
