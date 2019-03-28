@@ -55,4 +55,42 @@ describe('Unit tests for issues', () => {
       'organizationId'
     );
   });
+
+  it('has required keys on issues PUT route', async () => {
+    const response = await request(server)
+      .put('/api/issues/3')
+      .send({
+        date: '03-28-19',
+        name: 'Basketballs deflated',
+        notes: 'We need to fix these ones so the kids can play!',
+        status: 'Needs attention',
+        isVisit: true,
+        organizationId: 1,
+        equipmentId: 3
+      });
+
+    expect(response.body.issue).to.have.keys(
+      'id',
+      'date',
+      'name',
+      'notes',
+      'status',
+      'isVisit',
+      'organizationId'
+    );
+  });
+
+  it('has required keys on issues DELETE route', async () => {
+    const response = await request(server).delete('/api/issues/3');
+
+    expect(response.body.issue).to.have.keys(
+      'id',
+      'date',
+      'name',
+      'notes',
+      'status',
+      'isVisit',
+      'organizationId'
+    );
+  });
 });

@@ -50,4 +50,38 @@ describe('Unit tests for equipment', () => {
       'organizationId'
     );
   });
+
+  it('has required keys on equipment PUT route', async () => {
+    const response = await request(server)
+      .put('/api/equipment/3')
+      .send({
+        name: 'Basketballs',
+        description: 'The old round orange ball',
+        working: 83,
+        damaged: 17,
+        organizationName: 'Evil Corp'
+      });
+
+    expect(response.body.equipment).to.have.keys(
+      'id',
+      'name',
+      'description',
+      'working',
+      'damaged',
+      'organizationId'
+    );
+  });
+
+  it('has required keys on equipment DELETE route', async () => {
+    const response = await request(server).delete('/api/equipment/3');
+
+    expect(response.body.equipment).to.have.keys(
+      'id',
+      'name',
+      'description',
+      'working',
+      'damaged',
+      'organizationId'
+    );
+  });
 });

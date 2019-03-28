@@ -46,4 +46,35 @@ describe('Unit tests for attendance', () => {
       'totalMinutesMissed'
     );
   });
+
+  it('has required keys on attendance PUT route', async () => {
+    const response = await request(server)
+      .put('/api/attendance/3')
+      .send({
+        lastIn: 20,
+        lastOut: 20,
+        totalMinutesMissed: 150,
+        expectedHours: 40
+      });
+
+    expect(response.body.attendance).to.have.keys(
+      'expectedHours',
+      'id',
+      'lastIn',
+      'lastOut',
+      'totalMinutesMissed'
+    );
+  });
+
+  it('has required keys on attendance DELETE route', async () => {
+    const response = await request(server).delete('/api/attendance/3');
+
+    expect(response.body.attendance).to.have.keys(
+      'expectedHours',
+      'id',
+      'lastIn',
+      'lastOut',
+      'totalMinutesMissed'
+    );
+  });
 });
