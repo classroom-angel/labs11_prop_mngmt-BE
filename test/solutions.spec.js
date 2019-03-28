@@ -28,24 +28,24 @@ describe('Unit tests for solutions', () => {
         time: '4:15 PM'
       });
 
-    expect(response.body.solution).to.have.keys('id', 'name', 'date', 'time');
+    expect(response.body.solution).to.have.keys(...solutionFields);
   });
 
   it('has required keys on solutions PUT route', async () => {
     const response = await request(server)
-      .put('/api/solutions/2')
+      .put(`${route}/2`)
       .send({
         name: 'Basketball patches',
         date: '04-15-19',
         time: '4:15 PM'
       });
 
-    expect(response.body.solution).to.have.keys('id', 'name', 'date', 'time');
+    expect(response.body.solution).to.have.keys(...solutionFields);
   });
 
   it('has required keys on solutions DELETE route', async () => {
-    const response = await request(server).delete('/api/solutions/2');
+    const response = await request(server).delete(`${route}/2`);
 
-    expect(response.body.solution).to.have.keys('id', 'name', 'date', 'time');
+    expect(response.body.solution).to.have.keys(...solutionFields);
   });
 });
