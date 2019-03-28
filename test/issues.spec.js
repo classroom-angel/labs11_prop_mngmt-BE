@@ -52,8 +52,6 @@ describe('Unit tests for issues', () => {
         equipmentId: 1
       });
 
-    console.log(response.body);
-
     expect(response.body.issue).to.have.keys(...issueFields);
   });
 
