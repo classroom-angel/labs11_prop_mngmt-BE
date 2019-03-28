@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const configureStripe = require('stripe');
-const stripe = configureStripe(process.env.STRIPE_DEV_KEY);
+const { stripe, postCharge } = require('../../db/dataHelpers/stripe');
 
 router.get('', (req, res) => {
   res.json({
@@ -9,16 +8,8 @@ router.get('', (req, res) => {
   });
 });
 
-const postStripeCharge = res => (error, stripeRes) => {
-  if (error) {
-    res.status(500).json({ error });
-  } else {
-    res.json({ success: stripeRes });
-  }
-};
-
 router.post('', (req, res) => {
-  stripe.charges.create(req.body, postStripeCharge(res));
+  stripe.charges.create(req.body, postCharge(res));
 });
 
 module.exports = router;
