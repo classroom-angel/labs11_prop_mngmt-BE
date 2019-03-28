@@ -7,7 +7,6 @@ exports.up = knex =>
     table.string('username').unique();
     table.string('first_name');
     table.string('last_name');
-    table.string('password');
     table.string('role');
     foreignId(table, 'organization_id', 'organizations');
   });

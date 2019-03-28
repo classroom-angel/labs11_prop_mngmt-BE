@@ -6,7 +6,6 @@ fakeUsers.push({
   username: 'sunshineteacher7',
   first_name: 'Janesworth',
   last_name: 'Doeballs',
-  password: faker.internet.password(),
   role: 'teacher',
   organization_id: 1
 });
