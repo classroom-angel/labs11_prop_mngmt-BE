@@ -386,7 +386,6 @@ User object (return): {
   "username": string,
   "firstName": string,
   "lastName": string,
-  "password": string,
   "role": string,
   "organizationId": integer
 }
@@ -409,7 +408,6 @@ Register object (send): {
   "username": string,
   "firstName": string,
   "lastName": string,
-  "password": string.
   "role": string,
   "organizationName": string
 }
@@ -423,8 +421,7 @@ Register object (send): {
 
 ```
 Login object (send): {
-  "username": string,
-  "password": string.
+  "username": string
 }
 ```
 
