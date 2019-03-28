@@ -31,7 +31,7 @@ describe('Unit tests for tags', () => {
 
   it('has required keys on tags PUT route', async () => {
     const response = await request(server)
-      .put('/api/tags/3')
+      .put(`${route}/3`)
       .send({
         name: 'Sportsball'
       });
@@ -40,7 +40,7 @@ describe('Unit tests for tags', () => {
   });
 
   it('has required keys on tags DELETE route', async () => {
-    const response = await request(server).delete('/api/tags/3');
+    const response = await request(server).delete(`${route}/3`);
 
     expect(response.body.tag).to.have.keys('id', 'name');
   });
