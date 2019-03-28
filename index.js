@@ -9,9 +9,10 @@ const whitelist = process.env.NODE_ENV === 'production' ? PROD_URLS : DEV_URLS;
 
 const corsOptions = {
   origin: (origin, cb) => {
-    return whitelist.indexOf(origin) !== -1
-      ? cb(null, true)
-      : cb(new Error('Not allowed by CORS'));
+    // return whitelist.indexOf(origin) !== -1
+    // ? cb(null, true);
+    // : cb(new Error('Not allowed by CORS'));
+    return cb(null, true);
   }
 };
 
