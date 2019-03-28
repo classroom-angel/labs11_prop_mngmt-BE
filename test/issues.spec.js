@@ -32,12 +32,12 @@ describe('Unit tests for issues', () => {
       .send({
         id: 3,
         date: '03-27-19',
-        name: 'Footballs deflated',
+        name: 'Basketballs deflated',
         notes: 'We need to fix these ones so the kids can play!',
         status: 'Needs attention',
-        isVisit: true,
+        isVisit: false,
         organizationId: 1,
-        equipmentId: 3
+        equipmentId: 2
       });
 
     expect(response.body.issue).to.have.keys(...issueFields);
@@ -45,39 +45,21 @@ describe('Unit tests for issues', () => {
 
   it('has required keys on issues PUT route', async () => {
     const response = await request(server)
-      .put('/api/issues/3')
+      .put(`${route}/3`)
       .send({
         date: '03-28-19',
-        name: 'Basketballs deflated',
-        notes: 'We need to fix these ones so the kids can play!',
-        status: 'Needs attention',
-        isVisit: true,
-        organizationId: 1,
-        equipmentId: 3
+        name: 'Knives not sharpened',
+        equipmentId: 1
       });
 
-    expect(response.body.issue).to.have.keys(
-      'id',
-      'date',
-      'name',
-      'notes',
-      'status',
-      'isVisit',
-      'organizationId'
-    );
+    console.log(response.body);
+
+    expect(response.body.issue).to.have.keys(...issueFields);
   });
 
   it('has required keys on issues DELETE route', async () => {
-    const response = await request(server).delete('/api/issues/3');
+    const response = await request(server).delete(`${route}/2`);
 
-    expect(response.body.issue).to.have.keys(
-      'id',
-      'date',
-      'name',
-      'notes',
-      'status',
-      'isVisit',
-      'organizationId'
-    );
+    expect(response.body.issue).to.have.keys(...issueFields);
   });
 });

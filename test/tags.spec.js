@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 describe('Unit tests for tags', () => {
   const route = '/api/tags';
-  const tagFields = ['id', 'name', 'issueId'];
+  const tagFields = ['id', 'name'];
 
   it('has required keys on tags GET route', async () => {
     const response = await request(server).get(route);
@@ -26,22 +26,22 @@ describe('Unit tests for tags', () => {
         name: 'Sports'
       });
 
-    expect(response.body.tag).to.have.keys('id', 'name');
+    expect(response.body.tag).to.have.keys(...tagFields);
   });
 
   it('has required keys on tags PUT route', async () => {
     const response = await request(server)
-      .put('/api/tags/3')
+      .put(`${route}/3`)
       .send({
         name: 'Sportsball'
       });
 
-    expect(response.body.tag).to.have.keys('id', 'name');
+    expect(response.body.tag).to.have.keys(...tagFields);
   });
 
   it('has required keys on tags DELETE route', async () => {
-    const response = await request(server).delete('/api/tags/3');
+    const response = await request(server).delete(`${route}/3`);
 
-    expect(response.body.tag).to.have.keys('id', 'name');
+    expect(response.body.tag).to.have.keys(...tagFields);
   });
 });
