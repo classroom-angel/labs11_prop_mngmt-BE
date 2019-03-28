@@ -31,4 +31,35 @@ describe('Unit tests for organizations', () => {
 
     expect(response.body.organization).to.have.keys(...organizationFields);
   });
+
+  it('has required keys on organizations PUT route', async () => {
+    const response = await request(server)
+      .put('/api/organizations/3')
+      .send({
+        name: 'Pasta Corp',
+        city: 'Philadelphia',
+        country: 'USA',
+        expectedHours: 50
+      });
+
+    expect(response.body.organization).to.have.keys(
+      'id',
+      'name',
+      'city',
+      'country',
+      'expectedHours'
+    );
+  });
+
+  it('has required keys on organizations DELETE route', async () => {
+    const response = await request(server).delete('/api/organizations/3');
+
+    expect(response.body.organization).to.have.keys(
+      'id',
+      'name',
+      'city',
+      'country',
+      'expectedHours'
+    );
+  });
 });
