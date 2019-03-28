@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 describe('Unit tests for solutions', () => {
   const route = '/api/solutions';
-  const solutionFields = ['id', 'name', 'date', 'time', 'issueId'];
+  const solutionFields = ['id', 'name', 'date', 'time'];
 
   it('has required keys on solutions GET route', async () => {
     const response = await request(server).get(route);
@@ -33,7 +33,7 @@ describe('Unit tests for solutions', () => {
 
   it('has required keys on solutions PUT route', async () => {
     const response = await request(server)
-      .put(`${route}/2`)
+      .put(`${route}/1`)
       .send({
         name: 'Basketball patches',
         date: '04-15-19',
