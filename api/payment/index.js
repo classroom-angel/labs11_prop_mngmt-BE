@@ -9,14 +9,16 @@ router.get('', (req, res) => {
   });
 });
 
-router.post('', (req, res) => {
-  stripe.charges.create(req.body, res => (error, stripeRes) => {
-    if (error) {
-      res.status(500).json({ error });
-    }
-
+const postStripeCharge = res => (error, stripeRes) => {
+  if (error) {
+    res.status(500).json({ error });
+  } else {
     res.json({ success: stripeRes });
-  });
+  }
+};
+
+router.post('', (req, res) => {
+  stripe.charges.create(req.body, postStripeCharge(res));
 });
 
 module.exports = router;
