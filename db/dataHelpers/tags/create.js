@@ -1,16 +1,18 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
   try {
     const { name, issueId } = req.body;
 
-    const [tag] = await db('tags')
+    let [tag] = await db('tags')
       .insert({
         name
       })
       .returning('*');
 
     if (tag) {
+      tag = keysToCamelCase(tag);
       if (issueId) {
         var [issueJoinTag] = await db('issues_join_tags')
           .insert({
@@ -18,6 +20,7 @@ const create = async (req, res) => {
             tag_id: tag.id
           })
           .returning('*');
+        issueJoinTag = keysToCamelCase(issueJoinTag);
       }
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });

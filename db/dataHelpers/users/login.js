@@ -1,19 +1,15 @@
 const db = require('../../dbConfig');
-const bcrypt = require('bcryptjs');
-
-const generateToken = require('./generateToken');
 
 const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { username } = req.body;
 
     db('users')
-      .where('user_name', username)
+      .where('username', username)
       .first()
       .then(user => {
-        if (user && bcrypt.compareSync(password, user.password)) {
-          const token = generateToken(user);
-          res.status(200).json(token);
+        if (user) {
+          res.status(200).json({ user });
         } else {
           res.status(401).json({ error: 'You shall not pass!' });
         }

@@ -1,15 +1,19 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
+const joinEquipment = require('./joinEquipment');
 
 const deleted = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const [issue] = await db('issues')
+    let [issue] = await db('issues')
       .where({ id })
       .del()
       .returning('*');
 
     if (issue) {
+      issue = keysToCamelCase(issue);
+      issue = await joinEquipment(issue);
       res.status(200).json({ issue });
     } else {
       res.status(400).json({

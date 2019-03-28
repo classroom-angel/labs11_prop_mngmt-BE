@@ -2,6 +2,7 @@
 
 - [Organizations](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#organizations)
 - [Users](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#users)
+- [Payment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#payment)
 - [Teacher Attendance](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#teacher-attendance)
 - [Equipment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#equipment)
 - [Issues](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#issues)
@@ -20,10 +21,10 @@
 ```
 Attendance object (return): {
   "id": integer,
-  "last_in": integer,
-  "last_out": integer,
-  "total_minutes_missed": integer,
-  "expected_hours": integer
+  "lastIn": integer,
+  "lastOut": integer,
+  "totalMinutesMissed": integer,
+  "expectedHours": integer
 }
 ```
 
@@ -73,8 +74,8 @@ Attendance object (send): {
 Comment object (return): {
   "id": integer,
   "content": string,
-  "user_id": integer,
-  "issue_id": integer
+  "userId": integer,
+  "issueId": integer
 }
 ```
 
@@ -126,7 +127,7 @@ Equipment object (return): {
   "description": string,
   "working": integer,
   "damaged": integer,
-  "organization_id": integer
+  "organizationId": integer
 }
 ```
 
@@ -180,8 +181,9 @@ Issues object (return): {
   "name": string,
   "notes": string,
   "status": string,
-  "is_visit": boolean,
-  "organization_id": integer
+  "isVisit": boolean,
+  "organizationId": integer,
+  "equipmentId": integer (when applicable)
 }
 ```
 
@@ -205,7 +207,7 @@ Issues object (return): {
 "status": string, ("Needs attention", "Fixed", etc.)
 "isVisit": boolean,
 "organizationId": string,
-"equipmentId": integer
+"equipmentId": integer (when applicable)
 ```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - update a specific issue comment
@@ -234,7 +236,7 @@ Organization object (return): {
   "name": string,
   "city": string,
   "country": string,
-  "expected_hours": integer
+  "expectedHours": integer
 }
 ```
 
@@ -283,8 +285,10 @@ Organization object (return): {
 ```
 Solution object (return): {
   "id": integer,
+  "name": string,
   "date": string (MM_DD_YY),
-  "time": string (HH:MM AM/PM)
+  "time": string (HH:MM AM/PM),
+  "issueId": integer
 }
 ```
 
@@ -303,6 +307,7 @@ Solution object (return): {
 ```
 Solution object (send): {
   "id": integer,
+  "name": string,
   "date": string (MM_DD_YY),
   "time": string (HH:MM AM/PM)
 }
@@ -331,7 +336,8 @@ Solution object (send): {
 ```
 Tag object (return): {
   "id": integer,
-  "name": string
+  "name": string,
+  "issueId": integer
 }
 ```
 
@@ -378,11 +384,10 @@ Tag object (send): {
 User object (return): {
   "id": integer,
   "username": string,
-  "first_name": string,
-  "last_name": string,
-  "password": string,
+  "firstName": string,
+  "lastName": string,
   "role": string,
-  "organization_id": integer
+  "organizationId": integer
 }
 ```
 
@@ -403,7 +408,6 @@ Register object (send): {
   "username": string,
   "firstName": string,
   "lastName": string,
-  "password": string.
   "role": string,
   "organizationName": string
 }
@@ -417,8 +421,7 @@ Register object (send): {
 
 ```
 Login object (send): {
-  "username": string,
-  "password": string.
+  "username": string
 }
 ```
 
@@ -433,3 +436,39 @@ Login object (send): {
 | URL Params | Body | Returns              |
 | ---------- | ---- | -------------------- |
 | ID         | N/A  | User object (return) |
+
+## Payment
+
+- GET to [https://classroom-angel-development.herokuapp.com/api/payment](https://classroom-angel-development.herokuapp.com/api/payment) - sanity route for stripe payment
+
+| URL Params | Body | Returns                 |
+| ---------- | ---- | ----------------------- |
+| N/A        | N/A  | Message object (return) |
+
+```
+Message object (return): {
+  "message": string,
+  "timestamp": string
+}
+```
+
+- POST to [https://classroom-angel-development.herokuapp.com/api/payment](https://classroom-angel-development.herokuapp.com/api/payment) - adds test payment
+
+| URL Params | Body                  | Returns                 |
+| ---------- | --------------------- | ----------------------- |
+| N/A        | Payment object (send) | Success object (return) |
+
+```
+Payment object (send): {
+  "description": string,
+  "source": string,
+  "currency": string,
+  "amount": double
+}
+```
+
+```
+Success object (return): {
+  T.B.D.
+}
+```
