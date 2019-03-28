@@ -6,7 +6,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const { name, description, working, damaged, organizationId } = req.body;
 
-    const [equipment] = await db('equipment')
+    let [equipment] = await db('equipment')
       .where({ id })
       .update({
         name,
