@@ -33,29 +33,19 @@ describe('Unit tests for comments', () => {
 
   it('has required keys on comments PUT route', async () => {
     const response = await request(server)
-      .put('/api/comments/3')
+      .put(`${route}/3`)
       .send({
         content: 'This was a horrible day at the office.',
         userId: 492,
         issueId: 1
       });
 
-    expect(response.body.comment).to.have.keys(
-      'id',
-      'content',
-      'userId',
-      'issueId'
-    );
+    expect(response.body.comment).to.have.keys(...commentFields);
   });
 
   it('has required keys on comments DELETE route', async () => {
-    const response = await request(server).delete('/api/comments/3');
+    const response = await request(server).delete(`${route}/3`);
 
-    expect(response.body.comment).to.have.keys(
-      'id',
-      'content',
-      'userId',
-      'issueId'
-    );
+    expect(response.body.comment).to.have.keys(...commentFields);
   });
 });
