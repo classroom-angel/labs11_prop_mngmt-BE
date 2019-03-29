@@ -1,11 +1,12 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, city, country, expectedHours } = req.body;
 
-    const [organization] = await db('organizations')
+    let [organization] = await db('organizations')
       .where({ id })
       .update({
         name,
@@ -16,6 +17,7 @@ const update = async (req, res) => {
       .returning('*');
 
     if (organization) {
+      organization = keysToCamelCase(organization);
       res.status(200).json({ organization });
     } else {
       res

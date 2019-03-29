@@ -1,9 +1,10 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
   try {
     const { id, lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
-    const [attendance] = await db('teacher_attendance')
+    let [attendance] = await db('teacher_attendance')
       .insert({
         id,
         last_in: lastIn,
@@ -14,6 +15,7 @@ const create = async (req, res) => {
       .returning('*');
 
     if (attendance) {
+      attendance = keysToCamelCase(attendance);
       res.status(200).json({ attendance });
     } else {
       res.status(400).json({ error: 'You probably did a bad with your data.' });

@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
   try {
@@ -12,6 +13,7 @@ const update = async (req, res) => {
           name
         })
         .returning('*');
+      tag = keysToCamelCase(tag);
     }
 
     if (issueId) {
@@ -21,6 +23,7 @@ const update = async (req, res) => {
           issue_id: issueId
         })
         .returning('*');
+      issueJoinTag = keysToCamelCase(issueJoinTag);
     }
 
     res.status(200).json({ tag, issueJoinTag });

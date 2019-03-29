@@ -1,16 +1,21 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
+const joinIssue = require('./joinIssue');
 
 const readById = async (req, res) => {
   try {
     const { id } = req.params;
-    const solution = await db('solutions')
+    let solution = await db('solutions')
       .where({ id })
       .first();
     if (solution) {
-      res.status(200).json({ solution });
+      solution = keysToCamelCase(solution);
+      solution = await joinIssue(solution);
     } else {
       res.status(404).json({ error: 'No solution was found.' });
     }
+
+    res.status(200).json({ solution });
   } catch (error) {
     res.status(500).json({ error });
   }
