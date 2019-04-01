@@ -2,17 +2,17 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
-  const {
-    date,
-    name,
-    notes,
-    status,
-    isVisit,
-    organizationId,
-    equipmentId
-  } = req.body;
   try {
     const { id } = req.params;
+    const {
+      date,
+      name,
+      notes,
+      status,
+      isVisit,
+      organizationId,
+      equipmentId
+    } = req.body;
 
     if (
       date ||
@@ -46,22 +46,7 @@ const update = async (req, res) => {
 
     res.status(200).json({ issue, equipmentJoinIssue });
   } catch (error) {
-    if (
-      !date ||
-      !name ||
-      !notes ||
-      !status ||
-      !isVisit ||
-      !organizationId ||
-      !equipmentId
-    ) {
-      res.status(422).json({
-        error:
-          'Required body information: date, name, noted, status, isVisit, organizationId, equipmentId'
-      });
-    } else {
-      res.status(500).json({ error });
-    }
+    res.status(500).json({ error });
   }
 };
 

@@ -28,9 +28,9 @@ const create = async (req, res) => {
 
     res.status(200).json({ tag, issueJoinTag });
   } catch (error) {
-    if (!name || !organizationId || !issueId) {
+    if (!name || !organizationId) {
       res.status(422).json({
-        error: 'Required body information: name, organizationId, issueId'
+        error: 'Required body information: name, organizationId'
       });
     } else {
       res.status(500).json({ error });
