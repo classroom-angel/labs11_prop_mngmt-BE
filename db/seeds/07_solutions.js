@@ -10,12 +10,12 @@ fakeSolutions.push({
     time: "5:16 PM"
 }, {
     name: 'New books',
-    organization_id: 10,
+    organization_id: 1,
     date: "04_03_19",
     time: "5:16 PM"
 }, {
     name: 'Smoke alarms',
-    organization_id: 1,
+    organization_id: 2,
     date: "04_04_19",
     time: "5:16 PM"
 }, {
@@ -25,7 +25,7 @@ fakeSolutions.push({
     time: "5:16 PM"
 }, {
     name: 'Art Easels',
-    organization_id: 10,
+    organization_id: 1,
     date: "04_08_19",
     time: "5:16 PM"
 }, {
@@ -40,12 +40,12 @@ fakeSolutions.push({
     time: "5:16 PM"
 }, {
     name: 'Chalkboard Replacement',
-    organization_id: 10,
+    organization_id: 1,
     date: "04_11_19",
     time: "5:16 PM"
 }, {
     name: 'Projector Screens',
-    organization_id: 10,
+    organization_id: 1,
     date: "04_12_19",
     time: "5:16 PM"
 }, {
@@ -60,7 +60,7 @@ fakeSolutions.push({
     time: "5:16 PM"
 }, {
     name: 'Locker Repair',
-    organization_id: 10,
+    organization_id: 1,
     date: "04_17_19",
     time: "5:16 PM"
 }, {
