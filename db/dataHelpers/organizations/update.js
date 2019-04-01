@@ -2,9 +2,9 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
+  const { name, city, country, expectedHours } = req.body;
   try {
     const { id } = req.params;
-    const { name, city, country, expectedHours } = req.body;
 
     let [organization] = await db('organizations')
       .where({ id })
@@ -25,7 +25,13 @@ const update = async (req, res) => {
         .json({ error: 'Could not update organization in database.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!name || !city || !country || !expectedHours) {
+      res.status(422).json({
+        error: 'Required body information: name, city, country, expectedHours'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

@@ -2,9 +2,9 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
+  const { content, userId, issueId } = req.body;
   try {
     const { id } = req.params;
-    const { content, userId, issueId } = req.body;
 
     let [comment] = await db('comments')
       .where({ id })
@@ -24,7 +24,13 @@ const update = async (req, res) => {
         .json({ error: 'Could not update the comment in database.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!content || !userId || !issueId) {
+      res
+        .status(422)
+        .json({ error: 'Required body information: content, userId, issueId' });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

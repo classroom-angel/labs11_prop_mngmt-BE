@@ -5,9 +5,9 @@ const {
 } = require('../organizations');
 
 const update = async (req, res) => {
+  const { username, firstName, lastName, role, organizationName } = req.body;
   try {
     const { id } = req.params;
-    const { username, firstName, lastName, role, organizationName } = req.body;
 
     if (orgId) {
       var { orgId } = readByName(organizationName);
@@ -31,7 +31,14 @@ const update = async (req, res) => {
       res.status(400).json({ error: 'Could not update user in database.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!username || !firstName || !lastName || !role || !organizationName) {
+      res.status(422).json({
+        error:
+          'Required body information: username, firstName, lastName, role, organizationName'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

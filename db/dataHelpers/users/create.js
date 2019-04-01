@@ -5,9 +5,8 @@ const {
 } = require('../organizations');
 
 const register = async (req, res) => {
+  const { username, firstName, lastName, role, organizationName } = req.body;
   try {
-    const { username, firstName, lastName, role, organizationName } = req.body;
-
     const { id } = await readByName(organizationName);
 
     let [user] = await db('users')
@@ -27,7 +26,14 @@ const register = async (req, res) => {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!username || !firstName || !lastName || !role || !organizationName) {
+      res.status(422).json({
+        error:
+          'Required body information: username, firstName, lastName, role, organizationName'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

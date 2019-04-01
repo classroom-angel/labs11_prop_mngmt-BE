@@ -2,9 +2,9 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
+  const { lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
   try {
     const { id } = req.params;
-    const { lastIn, lastOut, expectedHours, totalMinutesMissed } = req.body;
 
     let [attendance] = await db('teacher_attendance')
       .where({ id })
@@ -25,7 +25,13 @@ const update = async (req, res) => {
         .json({ error: 'Could not update teacher attendance in database.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!lastIn || !lastOut || !totalMinutesMissed) {
+      res.status(422).json({
+        error: 'Required body information: lastIn, lastOut, totalMinutesMissed.'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

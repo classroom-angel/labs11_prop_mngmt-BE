@@ -2,9 +2,9 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
+  const { name, date, time, organizationId, issueId } = req.body;
   try {
     const { id } = req.params;
-    const { name, date, time, organizationId, issueId } = req.body;
 
     if (date || time) {
       var [solution] = await db('solutions')
@@ -31,7 +31,14 @@ const update = async (req, res) => {
 
     res.status(200).json({ solution, issueJoinSolution });
   } catch (error) {
-    res.status(500).json({ error });
+    if (!name || !date || !time || !organizationId || !issueId) {
+      res.status(422).json({
+        error:
+          'Required boy information: name, date, time, organizationId, issueId'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 
