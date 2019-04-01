@@ -10,7 +10,7 @@ const create = async (req, res) => {
         name,
         date,
         time,
-        organizationId
+        organization_id: organizationId
       })
       .returning('*');
 
