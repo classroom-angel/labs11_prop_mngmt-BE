@@ -2,9 +2,8 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
+  const { content, userId, issueId } = req.body;
   try {
-    const { content, userId, issueId } = req.body;
-
     let [comment] = await db('comments')
       .insert({
         content,
@@ -20,7 +19,13 @@ const create = async (req, res) => {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!content || !userId || !issueId) {
+      res
+        .status(422)
+        .json({ error: 'Required body information: content, userId, issueId' });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 
