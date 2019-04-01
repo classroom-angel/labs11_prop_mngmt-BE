@@ -3,13 +3,14 @@ const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
   try {
-    const { name, date, time, issueId } = req.body;
+    const { name, date, time, organizationId, issueId } = req.body;
 
     let [solution] = await db('solutions')
       .insert({
         name,
         date,
-        time
+        time,
+        organizationId
       })
       .returning('*');
 
