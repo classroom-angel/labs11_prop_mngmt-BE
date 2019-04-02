@@ -30,11 +30,11 @@ describe('Unit tests for issues', () => {
     const response = await request(server)
       .post(route)
       .send({
-        id: 3,
+        id: 5,
         date: '03-27-19',
         name: 'Basketballs deflated',
         notes: 'We need to fix these ones so the kids can play!',
-        status: 'Needs attention',
+        status: 'needs attention',
         isVisit: false,
         organizationId: 1,
         equipmentId: 2
