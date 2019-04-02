@@ -5,7 +5,7 @@ const fetchImages = async (req, res) => {
   try {
     const { issueId } = req.body;
 
-    const imagePaths = await db('images').where({ issue_id, issueId });
+    const imagePaths = await db('images').where({ issue_id: issueId });
     if (imagePaths) {
       imagePaths = keysToCamelCase(imagePaths);
       res.status(200).json({ imagePaths });
