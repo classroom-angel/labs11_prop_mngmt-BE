@@ -5,9 +5,8 @@ const {
 } = require('../organizations');
 
 const create = async (req, res) => {
+  const { name, description, working, damaged, organizationName } = req.body;
   try {
-    const { name, description, working, damaged, organizationName } = req.body;
-
     const { id } = await readByName(organizationName);
 
     let [equipment] = await db('equipment')
@@ -27,7 +26,16 @@ const create = async (req, res) => {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!name || !description || !working || !damaged || !organizationName) {
+      res
+        .status(422)
+        .json({
+          error:
+            'Required body information: name, description, working, damaged, organizationName'
+        });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

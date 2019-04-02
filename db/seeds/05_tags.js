@@ -2,10 +2,12 @@ const fakeTags = [];
 
 fakeTags.push(
   {
-    name: 'repair'
+    name: 'repair',
+    organization_id: 1
   },
   {
-    name: 'administrative'
+    name: 'administrative',
+    organization_id: 1
   }
 );
 

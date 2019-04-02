@@ -10,7 +10,7 @@
     "dev": "nodemon index.js",
     "batch": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "start": "node index.js",
-    "test": "npm run batch && mocha"
+    "test": "npm run batch && mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,11 @@
   "homepage": "https://github.com/classroom-angel/labs11_prop_mngmt-BE#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "cloudinary": "^1.14.0",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "express-form-data": "^2.0.8",
     "faker": "^4.1.0",
     "knex": "^0.16.3",
     "mocha": "^6.0.2",

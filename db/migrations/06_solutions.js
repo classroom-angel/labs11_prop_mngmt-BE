@@ -1,4 +1,4 @@
-const { makeDate } = require('../dataHelpers/migrations');
+const { makeDate, foreignId } = require('../dataHelpers/migrations');
 const solutions = 'solutions';
 
 exports.up = knex =>
@@ -8,6 +8,7 @@ exports.up = knex =>
     table.string('name').notNullable();
     table.string('date').defaultTo(date.format('MM_DD_YY'));
     table.string('time').defaultTo(date.format('LT'));
+    foreignId(table, 'organization_id', 'organizations');
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(solutions);

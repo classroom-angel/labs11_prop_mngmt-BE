@@ -288,7 +288,8 @@ Solution object (return): {
   "name": string,
   "date": string (MM_DD_YY),
   "time": string (HH:MM AM/PM),
-  "issueId": integer
+  "issueId": integer,
+  "organizationId": integer
 }
 ```
 
@@ -309,7 +310,8 @@ Solution object (send): {
   "id": integer,
   "name": string,
   "date": string (MM_DD_YY),
-  "time": string (HH:MM AM/PM)
+  "time": string (HH:MM AM/PM),
+  "organizationId": integer
 }
 ```
 
@@ -337,7 +339,8 @@ Solution object (send): {
 Tag object (return): {
   "id": integer,
   "name": string,
-  "issueId": integer
+  "issueId": integer,
+  "organizationId": integer
 }
 ```
 
@@ -356,7 +359,8 @@ Tag object (return): {
 ```
 Tag object (send): {
   "id": integer,
-  "name": string
+  "name": string,
+  "organizationId": integer
 }
 ```
 

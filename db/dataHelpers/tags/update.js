@@ -4,13 +4,14 @@ const { keysToCamelCase } = require('../');
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, issueId } = req.body;
+    const { name, organizationId, issueId } = req.body;
 
     if (name) {
       var [tag] = await db('tags')
         .where({ id })
         .update({
-          name
+          name,
+          organization_id: organizationId
         })
         .returning('*');
       tag = keysToCamelCase(tag);

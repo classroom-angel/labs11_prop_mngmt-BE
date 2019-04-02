@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 describe('Unit tests for tags', () => {
   const route = '/api/tags';
-  const tagFields = ['id', 'name'];
+  const tagFields = ['id', 'name', 'organizationId'];
 
   it('has required keys on tags GET route', async () => {
     const response = await request(server).get(route);
@@ -23,7 +23,8 @@ describe('Unit tests for tags', () => {
       .post(route)
       .send({
         id: 3,
-        name: 'Sports'
+        name: 'Sports',
+        organizationId: 1
       });
 
     expect(response.body.tag).to.have.keys(...tagFields);

@@ -2,12 +2,12 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
+  const { name, organizationId, issueId } = req.body;
   try {
-    const { name, issueId } = req.body;
-
     let [tag] = await db('tags')
       .insert({
-        name
+        name,
+        organization_id: organizationId
       })
       .returning('*');
 
@@ -28,7 +28,13 @@ const create = async (req, res) => {
 
     res.status(200).json({ tag, issueJoinTag });
   } catch (error) {
-    res.status(500).json({ error });
+    if (!name || !organizationId) {
+      res.status(422).json({
+        error: 'Required body information: name, organizationId'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 

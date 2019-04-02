@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 
 describe('Unit tests for solutions', () => {
   const route = '/api/solutions';
-  const solutionFields = ['id', 'name', 'date', 'time'];
+  const solutionFields = ['id', 'name', 'date', 'time', 'organizationId'];
 
   it('has required keys on solutions GET route', async () => {
     const response = await request(server).get(route);
@@ -25,7 +25,8 @@ describe('Unit tests for solutions', () => {
         id: 2,
         name: 'Football patches',
         date: '04-15-19',
-        time: '4:15 PM'
+        time: '4:15 PM',
+        organizationId: 1
       });
 
     expect(response.body.solution).to.have.keys(...solutionFields);

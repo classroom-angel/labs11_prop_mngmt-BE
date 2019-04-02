@@ -4,7 +4,7 @@ const { keysToCamelCase } = require('../');
 const update = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, date, time, issueId } = req.body;
+    const { name, date, time, organizationId, issueId } = req.body;
 
     if (date || time) {
       var [solution] = await db('solutions')
@@ -12,7 +12,8 @@ const update = async (req, res) => {
         .update({
           name,
           date,
-          time
+          time,
+          organizationId
         })
         .returning('*');
       solution = keysToCamelCase(solution);

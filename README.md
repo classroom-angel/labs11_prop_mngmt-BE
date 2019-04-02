@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE.svg?branch=development)](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE)
+
 # Classroom Angel Back End
 
 ## Important Links:
