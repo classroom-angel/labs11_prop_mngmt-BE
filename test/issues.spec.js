@@ -45,7 +45,7 @@ describe('Unit tests for issues', () => {
 
   it('has required keys on issues PUT route', async () => {
     const response = await request(server)
-      .put(`${route}/3`)
+      .put(`${route}/5`)
       .send({
         date: '03-28-19',
         name: 'Knives not sharpened',
