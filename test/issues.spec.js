@@ -30,11 +30,11 @@ describe('Unit tests for issues', () => {
     const response = await request(server)
       .post(route)
       .send({
-        id: 3,
+        id: 5,
         date: '03-27-19',
         name: 'Basketballs deflated',
         notes: 'We need to fix these ones so the kids can play!',
-        status: 'Needs attention',
+        status: 'needs attention',
         isVisit: false,
         organizationId: 1,
         equipmentId: 2
@@ -45,7 +45,7 @@ describe('Unit tests for issues', () => {
 
   it('has required keys on issues PUT route', async () => {
     const response = await request(server)
-      .put(`${route}/3`)
+      .put(`${route}/5`)
       .send({
         date: '03-28-19',
         name: 'Knives not sharpened',
