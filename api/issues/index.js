@@ -15,6 +15,6 @@ router.get('', read);
 router.get('/:id', readById);
 router.put('/:id', update);
 router.delete('/:id', deleted);
-router.post('/:id/images', fetchImages);
+router.get('/:id/images', fetchImages);
 
 module.exports = router;

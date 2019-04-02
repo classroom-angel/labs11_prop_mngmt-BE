@@ -1,14 +1,14 @@
-const db = '../../dbConfig';
+const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const fetchImages = async (req, res) => {
   try {
-    const { issueId } = req.body;
+    const issueId = req.params.id;
 
-    const imagePaths = await db('images').where({ issue_id: issueId });
-    if (imagePaths) {
-      imagePaths = keysToCamelCase(imagePaths);
-      res.status(200).json({ imagePaths });
+    let images = await db('images').where({ issue_id: issueId });
+    if (images) {
+      images = images.map(path => keysToCamelCase(path));
+      res.status(200).json({ images });
     } else {
       res
         .status(400)
