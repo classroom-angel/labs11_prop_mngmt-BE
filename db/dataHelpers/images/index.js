@@ -1,4 +1,5 @@
 const db = require('../../dbConfig');
+const { keysToCamelCase } = require('../');
 
 const create = async ({ paths, issueId }) => {
   try {
@@ -6,7 +7,7 @@ const create = async ({ paths, issueId }) => {
       .insert(paths.map(path => ({ path, issue_id: issueId })))
       .returning('*');
 
-    if (images.length) return images;
+    if (images.length) return keysToCamelCase(images);
     else return null;
   } catch (err) {
     return err;
