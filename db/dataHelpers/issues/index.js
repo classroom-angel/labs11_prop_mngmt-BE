@@ -9,5 +9,6 @@ module.exports = {
   read,
   readById,
   update,
-  deleted
+  deleted,
+  fetchImages
 };

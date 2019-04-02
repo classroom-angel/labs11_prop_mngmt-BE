@@ -1,12 +1,13 @@
-const router = require('express').Router();
 const db = '../../dbConfig';
+const { keysToCamelCase } = require('../');
 
-router.get('', async (req, res) => {
+const fetchImages = async (req, res) => {
   try {
     const { issueId } = req.body;
 
-    const imagePaths = await db('images').where({ issueId });
+    const imagePaths = await db('images').where({ issue_id, issueId });
     if (imagePaths) {
+      imagePaths = keysToCamelCase(imagePaths);
       res.status(200).json({ imagePaths });
     } else {
       res
@@ -16,6 +17,6 @@ router.get('', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error });
   }
-});
+};
 
-module.exports = router;
+module.exports = fetchImages;
