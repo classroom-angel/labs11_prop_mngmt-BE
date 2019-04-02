@@ -29,6 +29,7 @@
   "homepage": "https://github.com/classroom-angel/labs11_prop_mngmt-BE#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "cloudinary": "^1.14.0",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
