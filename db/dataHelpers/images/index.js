@@ -7,8 +7,9 @@ const create = async ({ paths, issueId }) => {
       .insert(paths.map(path => ({ path, issue_id: issueId })))
       .returning('*');
 
-    if (images.length) return keysToCamelCase(images);
-    else return null;
+    if (images.length) {
+      return images.map(image => keysToCamelCase(image));
+    } else return null;
   } catch (err) {
     return err;
   }

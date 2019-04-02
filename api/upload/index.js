@@ -4,7 +4,8 @@ const cloudinary = require('cloudinary').v2;
 const { create } = require('../../db/dataHelpers/images');
 
 router.post('', formData.parse(), ({ files, body: { issueId } }, res) => {
-  const images = Object.values(files);
+  let [images] = Object.values(files);
+  if (!Array.isArray(images)) images = [images];
   const results = images.map(image => cloudinary.uploader.upload(image.path));
   Promise.all(results).then(async cloud => {
     try {
