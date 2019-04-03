@@ -6,7 +6,7 @@ const {
   update,
   deleted,
   readById,
-  fetchImages,
+  readImages,
   createImages
 } = require('../../db/dataHelpers/issues');
 
@@ -15,7 +15,7 @@ router.get('', read);
 router.get('/:id', readById);
 router.put('/:id', update);
 router.delete('/:id', deleted);
-router.get('/:id/images', fetchImages);
+router.get('/:id/images', readImages);
 router.post('/:id/images', formData.parse(), createImages);
 
 module.exports = router;

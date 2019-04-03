@@ -15,6 +15,9 @@ const create = async ({ paths, issueId }) => {
   }
 };
 
+const readAll = require('./readAll');
+
 module.exports = {
-  create
+  create,
+  readAll
 };
