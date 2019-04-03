@@ -4,6 +4,7 @@ const readById = require('./readById');
 const update = require('./update');
 const deleted = require('./deleted');
 const fetchImages = require('./fetchImages');
+const createImages = require('./createImages');
 
 module.exports = {
   create,
@@ -11,5 +12,6 @@ module.exports = {
   readById,
   update,
   deleted,
-  fetchImages
+  fetchImages,
+  createImages
 };
