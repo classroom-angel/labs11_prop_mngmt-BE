@@ -4,23 +4,25 @@ fakeIssues.push({
   name: 'Karen visit',
   notes: 'Clean up!',
   is_visit: true,
-  organization_id: 1
+  organization_id: 1,
 }, {
-  name: 'Need more books',
+  name: 'Red dot on macbook screen',
   notes: 'Will order',
   is_visit: true,
   status: 'scheduled',
-  organization_id: 1
+  organization_id: 1,
+  equipment_id: 3
 }, {
-  name: 'AC is broken',
+  name: 'Will not turn on',
   notes: 'Will handle in summer',
-  is_visit: true,
   status: 'ignored',
-  organization_id: 1
+  organization_id: 1,
+  equipment_id: 3
 }, {
-  name: 'Broken desks',
-  notes: 'There are so many!',
-  organization_id: 2
+  name: 'Broken desk leg',
+  notes: 'Needs grease',
+  organization_id: 2,
+  equipment_id: 6
 });
 
 const {

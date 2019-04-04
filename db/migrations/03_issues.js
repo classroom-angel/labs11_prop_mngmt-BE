@@ -15,6 +15,7 @@ exports.up = knex =>
     table.string('status').defaultTo('needs attention');
     table.boolean('is_visit').defaultTo(false);
     foreignId(table, 'organization_id', 'organizations');
+    foreignId(table, 'equipment_id', 'equipment')
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(issues);
