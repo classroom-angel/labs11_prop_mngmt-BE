@@ -55,7 +55,7 @@ describe('Unit tests for equipment', () => {
   });
 
   it('has required keys on equipment DELETE route', async () => {
-    const response = await request(server).delete(`${route}/3`);
+    const response = await request(server).delete(`${route}/1`);
 
     expect(response.body.equipment).to.have.keys(...equipmentFields);
   });
