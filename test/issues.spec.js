@@ -11,7 +11,8 @@ describe('Unit tests for issues', () => {
     'notes',
     'status',
     'isVisit',
-    'organizationId'
+    'organizationId',
+    'equipmentId'
   ];
 
   it('has required keys on issues GET route', async () => {
