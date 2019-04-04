@@ -16,34 +16,29 @@ fakeIssues.push({
   notes: 'It is all wobbly and stuff',
   is_visit: true,
   status: 'ignored',
-  organization_id: 1,
-  equipmentId: 6
+  organization_id: 1
 }, {}, {
   name: 'Macbook has red dot on screen',
   notes: 'Will handle in summer',
   is_visit: true,
   status: 'ignored',
-  organization_id: 1,
-  equipmentId: 3
+  organization_id: 1
 }, {}, {
   name: 'It will not turn on',
   notes: 'Will handle in summer',
   is_visit: true,
   status: 'ignored',
-  organization_id: 1,
-  equipmentId: 3
+  organization_id: 1
 }, {}, {
   name: 'Cafeteria missing a knife',
   notes: 'Will handle in summer',
   is_visit: true,
   status: 'ignored',
-  organization_id: 1,
-  equipmentId: 1
+  organization_id: 1
 }, {
   name: 'Page missing from this book',
   notes: 'There are so many!',
-  organization_id: 2,
-  equipmentId: 2
+  organization_id: 2
 });
 
 const {
