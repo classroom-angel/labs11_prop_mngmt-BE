@@ -15,7 +15,7 @@ exports.up = knex =>
     table.string('status').defaultTo('needs attention');
     table.boolean('is_visit').defaultTo(false);
     foreignId(table, 'organization_id', 'organizations');
-    foreignId(table, 'equipment_id', 'equipment')
+    table.integer('equipment_id').references('id').on('equipment') //Not sure yet if this should cascade on delete/update
   });
 
 exports.down = knex => knex.schema.dropTableIfExists(issues);
