@@ -12,15 +12,38 @@ fakeIssues.push({
   status: 'scheduled',
   organization_id: 1
 }, {
-  name: 'AC is broken',
+  name: 'Desk leg is broken',
+  notes: 'It is all wobbly and stuff',
+  is_visit: true,
+  status: 'ignored',
+  organization_id: 1,
+  equipmentId: 6
+}, {}, {
+  name: 'Macbook has red dot on screen',
   notes: 'Will handle in summer',
   is_visit: true,
   status: 'ignored',
-  organization_id: 1
+  organization_id: 1,
+  equipmentId: 3
+}, {}, {
+  name: 'It will not turn on',
+  notes: 'Will handle in summer',
+  is_visit: true,
+  status: 'ignored',
+  organization_id: 1,
+  equipmentId: 3
+}, {}, {
+  name: 'Cafeteria missing a knife',
+  notes: 'Will handle in summer',
+  is_visit: true,
+  status: 'ignored',
+  organization_id: 1,
+  equipmentId: 1
 }, {
-  name: 'Broken desks',
+  name: 'Page missing from this book',
   notes: 'There are so many!',
-  organization_id: 2
+  organization_id: 2,
+  equipmentId: 2
 });
 
 const {
