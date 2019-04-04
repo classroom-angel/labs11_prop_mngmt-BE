@@ -11,18 +11,18 @@ fakeIssues.push({
   is_visit: true,
   status: 'scheduled',
   organization_id: 1,
-  equipment_id: 3
+  equipmentId: 3
 }, {
   name: 'Will not turn on',
   notes: 'Will handle in summer',
   status: 'ignored',
   organization_id: 1,
-  equipment_id: 3
+  equipmentId: 3
 }, {
   name: 'Broken desk leg',
   notes: 'Needs grease',
   organization_id: 2,
-  equipment_id: 6
+  equipmentId: 6
 });
 
 const {
