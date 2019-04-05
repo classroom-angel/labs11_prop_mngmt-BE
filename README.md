@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE.svg?branch=development)](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE)
+- master: [![Build Status](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE.svg?branch=master)](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE)
+- development: [![Build Status](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE.svg?branch=development)](https://travis-ci.org/classroom-angel/labs11_prop_mngmt-BE)
 
 # Classroom Angel Back End
 

@@ -1,7 +1,7 @@
 const db = require('../../dbConfig');
-const { keysToCamelCase } = require('../');
+const { keysToCamelCase } = require('..');
 
-const fetchImages = async (req, res) => {
+const readImages = async (req, res) => {
   try {
     const issueId = req.params.id;
 
@@ -19,4 +19,4 @@ const fetchImages = async (req, res) => {
   }
 };
 
-module.exports = fetchImages;
+module.exports = readImages;
