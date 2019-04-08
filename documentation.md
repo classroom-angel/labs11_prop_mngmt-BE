@@ -2,13 +2,17 @@
 
 - [Organizations](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#organizations)
 - [Users](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#users)
-- [Payment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#payment)
 - [Teacher Attendance](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#teacher-attendance)
 - [Equipment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#equipment)
 - [Issues](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#issues)
 - [Tags](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#tags)
 - [Comments](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#issue-comments)
 - [Solutions](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#solutions)
+
+**In-progress**:
+
+- [Payment](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#payment)
+- [Testimonials](https://github.com/classroom-angel/labs11_prop_mngmt-BE/blob/development/documentation.md#testimonials)
 
 ## Teacher Attendance
 
@@ -490,3 +494,7 @@ Success object (return): {
   T.B.D.
 }
 ```
+
+## Testimonials
+
+T.B.D.
