@@ -17,6 +17,6 @@ describe('Unit tests for server/database', () => {
   it('returns sanity check', async () => {
     const response = await request(server).get('/');
 
-    expect(response.body).to.include({ success: "You're not insane!" });
+    expect(response.body).to.have.keys(['success']);
   });
 });

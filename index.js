@@ -22,8 +22,7 @@ server.use('/api', require('./api'));
 
 server.get('', (req, res) => {
   res.json({
-    success:
-      "You're not insane! See the API docs at: https://classroomangeldocs.surge.sh"
+    success: `You're not insane! See the API docs at: https://classroomangeldocs.surge.sh`
   });
 });
 
