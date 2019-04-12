@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "nodemon index.js",
     "batch": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "dev": "nodemon index.js",
+    "docs": "markdown-folder-to-html && surge _docs https://classroomangeldocs.surge.sh",
     "start": "node index.js",
     "test": "npm run batch && mocha --exit"
   },
@@ -36,7 +37,6 @@
     "express-form-data": "^2.0.8",
     "faker": "^4.1.0",
     "knex": "^0.16.3",
-    "markdown-folder-to-html": "^2.1.2",
     "mocha": "^6.1.3",
     "moment": "^2.24.0",
     "pg": "^7.9.0",
@@ -45,6 +45,8 @@
     "supertest": "^4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "markdown-folder-to-html": "^2.1.2",
+    "nodemon": "^1.18.10",
+    "surge": "^0.20.3"
   }
 }
