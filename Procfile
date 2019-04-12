@@ -1,2 +1,2 @@
 web: node index.js
-release: npm run batch
+release: markdown-folder-to-html && npm run batch
