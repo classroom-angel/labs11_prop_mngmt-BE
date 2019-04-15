@@ -1,8 +1,7 @@
 const create = require('./create');
-const read = require('./read')
-
+const read = require('./read');
 
 module.exports = {
-    create,
-    read
+  create,
+  read
 };

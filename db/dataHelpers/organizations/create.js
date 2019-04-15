@@ -20,12 +20,10 @@ const create = async (req, res) => {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
   } catch (error) {
-    if (!name || !city || !country || !expectedHours) {
-      res
-        .status(422)
-        .json({
-          error: 'Required body information: name, city, country, expectedHours'
-        });
+    if (!name || !city || !country) {
+      res.status(422).json({
+        error: 'Required body information: name, city, country'
+      });
     } else {
       res.status(500).json({ error });
     }
