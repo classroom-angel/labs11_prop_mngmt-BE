@@ -6,7 +6,7 @@ const readImages = async (req, res) => {
     const issueId = req.params.id;
 
     let images = await db('images').where({ issue_id: issueId });
-    if (images) {
+    if (Array.isArray(images)) {
       images = images.map(path => keysToCamelCase(path));
       res.status(200).json({ images });
     } else {
