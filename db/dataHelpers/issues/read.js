@@ -10,6 +10,14 @@ const read = async (req, res) => {
 
       issues = issues.map(joinEquipment);
       issues = await Promise.all(issues);
+      issues.sort((a, b) => {
+        let [aMonth, aDay, aYear] = a.date.split('-');
+        let [bMonth, bDay, bYear] = b.date.split('-');
+
+        if (aYear !== bYear) return bYear - aYear;
+        if (aMonth !== bMonth) return bMonth - aMonth;
+        else return bDay - aDay;
+      });
 
       res.status(200).json({ issues });
     } else {
