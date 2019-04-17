@@ -10,7 +10,7 @@
 Solution object (return): {
   "id": integer,
   "name": string,
-  "date": string (MM_DD_YY),
+  "date": string (MM-DD-YY),
   "time": string (HH:MM AM/PM),
   "issueId": integer,
   "organizationId": integer
