@@ -31,7 +31,6 @@ Solution object (return): {
 
 ```
 Solution object (send): {
-  "id": integer,
   "name": string,
   "date": string (MM_DD_YY),
   "time": string (HH:MM AM/PM),

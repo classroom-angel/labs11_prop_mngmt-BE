@@ -30,11 +30,10 @@ Attendance object (return): {
 
 ```
 Attendance object (send): {
-  "id": integer,
   "lastIn": integer,
   "lastOut": integer,
   "totalMinutesMissed": integer,
-  "expectedHours": integer
+  "expectedHours": integer (optional)
 }
 ```
 

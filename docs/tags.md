@@ -29,7 +29,6 @@ Tag object (return): {
 
 ```
 Tag object (send): {
-  "id": integer,
   "name": string,
   "organizationId": integer
 }

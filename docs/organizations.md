@@ -44,11 +44,10 @@ Organization object (return): {
 
 ```
 Organization object (return): {
-  "id": integer,
   "name": string,
   "city": string,
   "country": string,
-  "expectedHours": integer
+  "expectedHours": integer (optional)
 }
 ```
 

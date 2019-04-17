@@ -31,7 +31,6 @@ Equipment object (return): {
 
 ```
 Equipment object (send): {
-  "id": integer,
   "name": string,
   "description": string,
   "working": integer,

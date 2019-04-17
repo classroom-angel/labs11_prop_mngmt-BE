@@ -29,7 +29,6 @@ Comment object (return): {
 
 ```
 Comment object (send): {
-  "id": integer,
   "content": string,
   "userId": integer,
   "issueId": integer

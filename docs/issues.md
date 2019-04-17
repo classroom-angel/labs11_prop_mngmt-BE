@@ -52,14 +52,13 @@ Image object (return): {
 | N/A        | Issue object (send) | Issues object (return) |
 
 ```Issues object (send): {
-"id": integer,
-"date": string (MM-DD-YY),
-"name": string,
-"notes": string,
-"status": string, ("Needs attention", "Fixed", etc.)
-"isVisit": boolean,
-"organizationId": string,
-"equipmentId": integer (when applicable)
+  "date": string (MM-DD-YY), (default: current date)
+  "name": string,
+  "notes": string,
+  "status": string, (default: "Needs attention")
+  "isVisit": boolean, (default: false)
+  "organizationId": string,
+  "equipmentId": integer (optional)
 ```
 
 - PUT to [https://classroom-angel-development.herokuapp.com/api/issues/id](https://classroom-angel-development.herokuapp.com/api/issues/id) - update a specific issue comment
