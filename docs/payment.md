@@ -30,6 +30,25 @@ Payment object (send): {
 
 ```
 Success object (return): {
-  T.B.D.
+  T.B.D. (payment details)
+}
+```
+
+- POST to [https://classroom-angel-development.herokuapp.com/api/payment/connect](https://classroom-angel-development.herokuapp.com/api/payment/connect) - connects contractor's stripe account
+
+| URL Params | Body                  | Returns                         |
+| ---------- | --------------------- | ------------------------------- |
+| N/A        | Connect object (send) | Connect details object (return) |
+
+```
+Connect object (send): {
+  "code": string
+}
+```
+
+```
+Connect details object (return): {
+  "refresh_token": string,
+  "stripe_user_id": integer(?)
 }
 ```
