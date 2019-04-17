@@ -25,6 +25,26 @@ Issues object (return): {
 | ---------- | ---- | ---------------------- |
 | N/A        | N/A  | Issues object (return) |
 
+- GET to [https://classroom-angel-development.herokuapp.com/api/issues/id/images](https://classroom-angel-development.herokuapp.com/api/issues/id/images) - retrieve a specific issue's images
+
+| URL Params | Body | Returns                        |
+| ---------- | ---- | ------------------------------ |
+| N/A        | N/A  | Issue's image objects (return) |
+
+```
+Image object (return): {
+  "id": integer,
+  "path": string (name.extension),
+  "issueId": integer)
+}
+```
+
+- POST to [https://classroom-angel-development.herokuapp.com/api/issues/id/images](https://classroom-angel-development.herokuapp.com/api/issues/id/images) - create images for a specific issue
+
+| URL Params | Body                            | Returns                      |
+| ---------- | ------------------------------- | ---------------------------- |
+| N/A        | New image object(s) as FormData | New image object(s) (return) |
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/issues/](https://classroom-angel-development.herokuapp.com/api/issues/) - create an issue
 
 | URL Params | Body                | Returns                |
