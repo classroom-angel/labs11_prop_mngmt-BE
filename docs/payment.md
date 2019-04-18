@@ -24,15 +24,12 @@ Payment object (send): {
   "description": string,
   "source": string,
   "currency": string,
-  "amount": double
+  "amount": integer
 }
 ```
 
-```
-Success object (return): {
-  T.B.D. (payment details)
-}
-```
+Success object (return): see [https://stripe.com/docs/api/charges/create](https://stripe.com/docs/api/charges/create)
+
 
 - POST to [https://classroom-angel-development.herokuapp.com/api/payment/connect](https://classroom-angel-development.herokuapp.com/api/payment/connect) - connects contractor's stripe account
 
@@ -48,7 +45,12 @@ Connect object (send): {
 
 ```
 Connect details object (return): {
-  "refresh_token": string,
-  "stripe_user_id": integer(?)
+  "token_type": string,
+  "stripe_publishable_key": string,
+  "scope": string,
+  "livemode": boolean,
+  "stripe_user_id": string,
+  "refresh_token": string",
+  "access_token": string
 }
 ```
