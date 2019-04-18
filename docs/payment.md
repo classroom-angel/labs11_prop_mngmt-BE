@@ -30,6 +30,7 @@ Payment object (send): {
 
 Success object (return): see [https://stripe.com/docs/api/charges/create](https://stripe.com/docs/api/charges/create)
 
+
 - POST to [https://classroom-angel-development.herokuapp.com/api/payment/connect](https://classroom-angel-development.herokuapp.com/api/payment/connect) - connects contractor's stripe account
 
 | URL Params | Body                  | Returns                         |

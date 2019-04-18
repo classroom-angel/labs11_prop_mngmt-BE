@@ -20,8 +20,10 @@ server.use(cors(corsOptions));
 server.use(express.json());
 server.use('/api', require('./api'));
 
-server.get('/', (req, res) => {
-  res.status(200).json({ success: "You're not insane!" });
+server.get('', (req, res) => {
+  res.json({
+    success: `You're not insane! See the API docs at: https://classroomangeldocs.surge.sh`
+  });
 });
 
 const PORT = process.env.PORT || 8000;

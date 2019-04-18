@@ -3,8 +3,8 @@ const { keysToCamelCase } = require('../');
 
 const update = async (req, res) => {
   try {
-    const { id } = req.params;
     const { content, userId, issueId } = req.body;
+    const { id } = req.params;
 
     let [comment] = await db('comments')
       .where({ id })

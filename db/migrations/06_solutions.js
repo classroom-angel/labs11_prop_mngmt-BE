@@ -6,7 +6,7 @@ exports.up = knex =>
     const date = makeDate();
     table.increments();
     table.string('name').notNullable();
-    table.string('date').defaultTo(date.format('MM_DD_YY'));
+    table.string('date').defaultTo(date.format('MM-DD-YY'));
     table.string('time').defaultTo(date.format('LT'));
     foreignId(table, 'organization_id', 'organizations');
   });

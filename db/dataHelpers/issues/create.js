@@ -2,17 +2,16 @@ const db = require('../../dbConfig');
 const { keysToCamelCase } = require('../');
 
 const create = async (req, res) => {
+  const {
+    date,
+    name,
+    notes,
+    status,
+    isVisit,
+    organizationId,
+    equipmentId
+  } = req.body;
   try {
-    const {
-      date,
-      name,
-      notes,
-      status,
-      isVisit,
-      organizationId,
-      equipmentId
-    } = req.body;
-
     let [issue] = await db('issues')
       .insert({
         date,
@@ -41,7 +40,13 @@ const create = async (req, res) => {
       res.status(400).json({ error: 'You probably did a bad with your data.' });
     }
   } catch (error) {
-    res.status(500).json({ error });
+    if (!name || !notes || !organizationId) {
+      res.status(422).json({
+        error: 'Required body information: name, notes, organizationId'
+      });
+    } else {
+      res.status(500).json({ error });
+    }
   }
 };
 
