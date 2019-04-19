@@ -34,7 +34,7 @@ describe('Unit tests for equipment', () => {
         description: 'The old pigskin',
         working: 83,
         damaged: 17,
-        organizationName: 'Evil Corp'
+        organizationName: 'Rosehill All Girls Boarding School'
       });
 
     expect(response.body.equipment).to.have.keys(...equipmentFields);
@@ -48,7 +48,7 @@ describe('Unit tests for equipment', () => {
         description: 'The old round orange ball',
         working: 83,
         damaged: 17,
-        organizationName: 'Evil Corp'
+        organizationName: 'Rosehill All Girls Boarding School'
       });
 
     expect(response.body.equipment).to.have.keys(...equipmentFields);
