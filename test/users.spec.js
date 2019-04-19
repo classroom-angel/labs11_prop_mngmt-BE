@@ -33,7 +33,7 @@ describe('Unit tests for users', () => {
         firstName: 'Greg',
         lastName: 'Davis',
         role: 'teacher',
-        organizationName: 'Evil Corp'
+        organizationName: 'Rosehill All Girls Boarding School'
       });
 
     expect(response.body.user).to.have.keys(...userFields);
@@ -47,7 +47,7 @@ describe('Unit tests for users', () => {
         firstName: 'Tom',
         lastName: 'Davies',
         role: 'teacher',
-        organizationName: 'Evil Corp'
+        organizationName: 'Rosehill All Girls Boarding School'
       });
 
     expect(response.body.user).to.have.keys(...userFields);

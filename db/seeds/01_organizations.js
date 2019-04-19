@@ -2,7 +2,7 @@ const fakeOrganizations = [];
 
 fakeOrganizations.push(
   {
-    name: 'Evil Corp',
+    name: 'Rosehill All Girls Boarding School',
     city: 'NYC',
     country: 'USA',
     expected_hours: 100
