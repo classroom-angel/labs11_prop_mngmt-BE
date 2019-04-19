@@ -10,35 +10,35 @@ fakeIssues.push(
   {
     name: 'Need more books',
     notes: 'Will order',
-    is_visit: true,
+    is_visit: false,
     status: 'scheduled',
     organization_id: 1
   },
   {
     name: 'Desk leg is broken',
     notes: 'It is all wobbly and stuff',
-    is_visit: true,
+    is_visit: false,
     status: 'ignored',
     organization_id: 1
   },
   {
     name: 'Macbook has red dot on screen',
     notes: 'Will handle in summer',
-    is_visit: true,
+    is_visit: false,
     status: 'ignored',
     organization_id: 1
   },
   {
     name: 'It will not turn on',
     notes: 'Will handle in summer',
-    is_visit: true,
+    is_visit: false,
     status: 'ignored',
     organization_id: 1
   },
   {
     name: 'Cafeteria missing a knife',
     notes: 'Will handle in summer',
-    is_visit: true,
+    is_visit: false,
     status: 'ignored',
     organization_id: 1
   },
